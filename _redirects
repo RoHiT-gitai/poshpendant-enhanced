@@ -1,12 +1,9 @@
 # PoshPendant Redirect Rules (Cloudflare Pages)
 
 # Redirect old paths to HTML files
-/shop /shop.html
-/product /product.html
+/shop /shop.html 301
+/product /product.html 301
 
 # Redirect to external stores
-/amazon /shop.html
-/etsy /shop.html
-
-# Single page app fallback - serve index.html for any unmatched routes
-/* /index.html 200
+/amazon /shop.html 301
+/etsy /shop.html 301
