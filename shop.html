@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop Gemstone Jewelry | PoshPendant® | Handcrafted in Jaipur</title>
+  <meta name="description" content="Shop handcrafted gemstone jewelry from Jaipur — natural jade, moonstone, rose quartz &amp; amethyst in 18K gold-plated brass. Filter, search, and buy securely via Etsy &amp; Amazon."/>
+  <meta name="theme-color" content="#C4797A"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="PoshPendant"/>
+  <link rel="apple-touch-icon" href="/favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="/styles.css"/>
+
+<style>
+/* Cart nav button */
+.cart-nav-btn{background:none;border:1px solid rgba(196,121,122,.3);border-radius:100px;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--ink);font-size:13px;position:relative;transition:all .3s}
+.cart-nav-btn:hover{background:var(--rose);color:white;border-color:var(--rose)}
+.cart-count{background:var(--rose);color:white;font-size:10px;border-radius:100px;min-width:18px;height:18px;display:none;align-items:center;justify-content:center;font-weight:600;font-family:"DM Sans",sans-serif}
+/* Add to cart btn */
+.add-cart-btn{background:var(--ink);color:white;border:none;border-radius:100px;padding:9px 18px;font-size:12px;font-family:"DM Sans",sans-serif;letter-spacing:.05em;cursor:pointer;transition:all .3s;white-space:nowrap}
+.add-cart-btn:hover{background:var(--rose);transform:translateY(-2px)}
+/* Cart overlay */
+.cart-overlay{position:fixed;inset:0;background:rgba(45,31,31,.5);z-index:999;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(4px)}
+.cart-overlay.open{opacity:1;pointer-events:all}
+/* Cart drawer */
+.cart-drawer{position:fixed;top:0;right:-420px;width:400px;max-width:100vw;height:100vh;background:var(--cream);z-index:1000;transition:right .4s cubic-bezier(.25,.46,.45,.94);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(45,31,31,.15)}
+.cart-drawer.open{right:0}
+.cart-header{padding:24px 24px 16px;border-bottom:1px solid rgba(196,121,122,.1);display:flex;justify-content:space-between;align-items:center}
+.cart-items{flex:1;overflow-y:auto;padding:16px 24px}
+.cart-empty{text-align:center;padding:60px 0}
+.cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(196,121,122,.08)}
+.cart-item-img{width:70px;height:70px;border-radius:12px;overflow:hidden;flex-shrink:0}
+.cart-item-img svg{width:70px;height:70px}
+.cart-item-info{flex:1}
+.cart-item-name{font-family:"Playfair Display",serif;font-size:14px;color:var(--ink);margin-bottom:4px}
+.cart-item-price{font-size:14px;color:var(--rose);margin-bottom:8px}
+.cart-item-qty{display:flex;align-items:center;gap:8px}
+.cart-item-qty button{background:var(--blush);border:none;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.cart-item-qty span{font-size:14px;color:var(--ink);min-width:20px;text-align:center}
+.cart-footer{padding:16px 24px 32px;border-top:1px solid rgba(196,121,122,.1)}
+.cart-subtotal{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.prod-card-link{text-decoration:none;color:inherit;display:block}
+.prod-card-link:hover .prod-name{color:var(--rose)}
+.prod-card{cursor:pointer}
+</style>
+</head>
+<body>
+
+<canvas class="star-canvas" id="starCanvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="geo-banner" id="geoBanner">
+  <span id="geoFlag">🌍</span>
+  <span id="geoBannerText">Detecting your location…</span>
+  <span class="geo-banner-close" onclick="closeBanner()">✕</span>
+</div>
+
+<nav id="navbar">
+  <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li class="nav-dropdown"><a href="/shop.html" class="active-page">All Jewelry ▾</a>
+      <ul class="nav-sub">
+        <li><a href="/necklaces.html">🪨 Necklaces</a></li>
+        <li><a href="/bracelets.html">📿 Bracelets</a></li>
+        <li><a href="/earrings.html">✨ Earrings</a></li>
+        <li><a href="/gifts.html">🎁 Gift for Her</a></li>
+      </ul>
+    </li>
+    <li><a href="/about.html">Our Story</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/wholesale.html">Wholesale</a></li>
+    <li><a href="https://wa.me/9119361597" class="nav-whatsapp" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a></li>
+    <li><button class="cart-nav-btn" onclick="openCart()" aria-label="Cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="cart-count" id="cartCount">0</span></button></li>
+    <li><a href="/shop.html" class="nav-shop-btn">Shop Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero" style="padding:80px 60px 50px;text-align:center;position:relative;overflow:hidden">
+  <div class="blob blob1" style="opacity:.5"></div>
+  <div class="blob blob2" style="opacity:.4"></div>
+  <div class="breadcrumb"><a href="/index.html">Home</a> <span style="opacity:.4">›</span> Shop</div>
+  <div class="eyebrow" style="justify-content:center;margin-bottom:16px">Browse Everything</div>
+  <h1 style="margin-bottom:16px">Handcrafted Gemstone <em>Jewelry</em></h1>
+  <p style="font-size:16px;color:var(--mid);max-width:560px;margin:0 auto;line-height:1.8">Natural jade, moonstone, rose quartz &amp; amethyst — handcrafted in Jaipur, India. Search, filter by category, and shop securely via Etsy or Amazon.</p>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-strip-item"><span class="trust-strip-icon">🌿</span><div><div class="trust-strip-title">Nickel-Free</div><div class="trust-strip-sub">Safe for sensitive skin</div></div></div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item"><span class="trust-strip-icon">↩️</span><div><div class="trust-strip-title">7-Day Returns</div><div class="trust-strip-sub">Hassle-free policy</div></div></div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item"><span class="trust-strip-icon">🔒</span><div><div class="trust-strip-title">Secure Checkout</div><div class="trust-strip-sub">Via Etsy &amp; Amazon</div></div></div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item"><span class="trust-strip-icon">✈️</span><div><div class="trust-strip-title">Ships Worldwide</div><div class="trust-strip-sub">From Jaipur, India</div></div></div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item"><span class="trust-strip-icon">⭐</span><div><div class="trust-strip-title">2,000+ Reviews</div><div class="trust-strip-sub">Rated 4.9 stars</div></div></div>
+  </div>
+</section>
+
+<!-- CATALOGUE -->
+<section class="catalogue-section" style="padding-top:40px">
+  <div class="cat-bar-wrap reveal">
+    <div class="cat-bar"><div class="cat-bar-inner">
+      <button class="cat-pill active" onclick="setFilter(this,'all')"><span class="cat-pill-icon">✨</span> All</button>
+      <button class="cat-pill" onclick="setFilter(this,'pendants')"><span class="cat-pill-icon">🪨</span> Necklaces</button>
+      <button class="cat-pill" onclick="setFilter(this,'celestial')"><span class="cat-pill-icon">📿</span> Bracelets <span class="cat-pill-badge">Popular</span></button>
+      <button class="cat-pill" onclick="setFilter(this,'nature')"><span class="cat-pill-icon">✨</span> Earrings</button>
+      <button class="cat-pill" onclick="setFilter(this,'geometric')"><span class="cat-pill-icon">🎁</span> Sets</button>
+      <button class="cat-pill" onclick="setFilter(this,'sets')"><span class="cat-pill-icon">💫</span> Under $50</button>
+    </div></div>
+  </div>
+  <div class="catalogue-controls reveal">
+    <div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input class="cat-search" id="catSearch" type="text" placeholder="Search pendants, styles…" oninput="filterCat()"/></div>
+    <select class="sort-sel" id="sortSel" onchange="filterCat()">
+      <option value="default">Sort: Featured</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="name-asc">Name: A-Z</option>
+    </select>
+  </div>
+  <div class="cat-grid" id="catGrid"></div>
+  <div class="cat-footer">
+    <div class="prod-count" id="prodCount"></div>
+    <button class="load-more" id="loadMoreBtn" onclick="loadMore()">Load More Products</button>
+  </div>
+</section>
+
+<!-- QUICK BUY MODAL -->
+<div class="modal-overlay" id="buyModal" onclick="if(event.target===this)closeBuyModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--soft);letter-spacing:.1em;text-transform:uppercase">Quick Buy</div>
+      <button class="modal-close" onclick="closeBuyModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-product-img" id="modalImg"></div>
+      <div class="modal-product-name" id="modalName"></div>
+      <div class="modal-product-desc" id="modalDesc"></div>
+      <div class="modal-price-row"><div class="modal-price" id="modalPrice"></div><div class="modal-stars">★★★★★</div></div>
+      <div class="modal-divider"></div>
+      <div class="modal-payment-title">Choose how to pay</div>
+      <a href="#" class="stripe-btn" id="stripeBtn" target="_blank">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+        Pay Securely with Stripe
+      </a>
+      <div class="modal-or">— or shop on —</div>
+      <div class="modal-alt-btns">
+        <a href="#" class="modal-alt-btn modal-amazon-btn" id="modalAmazon" target="_blank">🇺🇸 Amazon</a>
+        <a href="#" class="modal-alt-btn modal-etsy-btn" id="modalEtsy" target="_blank">🌍 Etsy</a>
+      </div>
+      <div class="modal-secure">🔒 Secure · Encrypted · Buyer Protected</div>
+      <div class="modal-note">Stripe is used by millions of businesses worldwide. Your card details are never stored on our site.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink)">Your Cart <span id="cartHeaderCount" style="font-size:13px;color:var(--soft);font-family:'DM Sans',sans-serif"></span></div>
+    <button onclick="closeCart()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--mid)">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div style="font-size:48px;margin-bottom:12px">🛒</div>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin-bottom:8px">Your cart is empty</div>
+      <div style="font-size:13px;color:var(--soft)">Add some beautiful pieces!</div>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span style="color:var(--mid);font-size:14px">Subtotal</span>
+      <span style="font-family:'Playfair Display',serif;font-size:20px;color:var(--ink)" id="cartTotal">$0</span>
+    </div>
+    <div style="font-size:11px;color:var(--soft);text-align:center;margin-bottom:14px">Shipping calculated at checkout · Free over $75</div>
+    <a href="/checkout.html" class="btn btn-primary" style="width:100%;justify-content:center;font-size:15px" onclick="saveCartForCheckout()">Proceed to Checkout →</a>
+    <button onclick="closeCart()" style="width:100%;background:none;border:none;color:var(--mid);font-size:13px;margin-top:10px;cursor:pointer;font-family:'DM Sans',sans-serif">Continue Shopping</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+    <p class="footer-tagline">Handcrafted gemstone jewelry from Jaipur, India. Natural stones, 18K gold-plated brass, designed for everyday wear. Shipped worldwide via Etsy &amp; Amazon.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://www.instagram.com/posh__pendants/" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      <a class="social-btn" href="#" aria-label="Pinterest">📌</a>
+      <a class="social-btn" href="https://wa.me/9119361597" target="_blank" rel="noopener" aria-label="WhatsApp" style="background:rgba(37,211,102,.15)"><svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+    </div>
+  </div>
+  <div class="footer-col"><div class="footer-col-title">Shop</div><ul>
+    <li><a href="/shop.html">All Jewelry</a></li>
+    <li><a href="/necklaces.html">Necklaces</a></li>
+    <li><a href="/bracelets.html">Bracelets</a></li>
+    <li><a href="/earrings.html">Earrings</a></li>
+    <li><a href="/gifts.html">Gift for Her</a></li>
+    <li><a href="https://www.amazon.com/stores/page/69770F17-3394-4D3F-8AEC-9A48CE53B447?maas=maas_adg_605FA232F4C4195D3BA227BA2C68768D_afap_abs&ref_=aa_maas&tag=maas" target="_blank">Amazon Store</a></li>
+    <li><a href="https://poshpendantjaipur.etsy.com" target="_blank">Etsy Shop</a></li>
+  </ul></div>
+  <div class="footer-col"><div class="footer-col-title">By Gemstone</div><ul>
+    <li><a href="/shop.html">🟢 Green Jade</a></li>
+    <li><a href="/shop.html">🌕 Moonstone</a></li>
+    <li><a href="/shop.html">🌸 Rose Quartz</a></li>
+    <li><a href="/shop.html">💜 Amethyst</a></li>
+    <li><a href="/shop.html">🔴 Bloodstone</a></li>
+    <li><a href="/wholesale.html">Wholesale / B2B</a></li>
+  </ul></div>
+  <div class="footer-col"><div class="footer-col-title">Info</div><ul>
+    <li><a href="/about.html">Our Story</a></li>
+    <li><a href="/contact.html">Contact Us</a></li>
+    <li><a href="contact.html#faq">FAQ</a></li>
+    <li><a href="/privacy.html">Privacy Policy</a></li>
+    <li><a href="/terms.html">Terms of Service</a></li>
+    <li><a href="/wholesale.html">Wholesale Enquiries</a></li>
+  </ul></div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 PoshPendant®. All rights reserved. Handcrafted in Jaipur, India 🌸</div>
+    <div class="footer-copy" style="color:rgba(255,255,255,.18)">poshpendant.store</div>
+  </div>
+</footer>
+<script>const ham=document.getElementById('navHamburger'),nl=document.querySelector('.nav-links');if(ham&&nl){ham.addEventListener('click',()=>{nl.classList.toggle('nav-open');ham.classList.toggle('open');});}</script>
+
+<script src="/shared.js"></script>
+<script>
+const cats=['pendants','celestial','nature','geometric','sets'];
+const catLabel={pendants:'Pendant',celestial:'Celestial',nature:'Nature',geometric:'Geometric',sets:'Set'};
+const pNames=['Soleil Teardrop','Nova Star','Crescent Moon','Aurora Hexagon','Bloom Petal','Rose Diamond','Twilight Orb','Iris Drop','Zephyr Circle','Ember Glow','Lune Arc','Vega Star','Dew Drop','Terra Disc','Luna Charm','Sienna Oval','Celestia Ring','Moss Leaf','Prism Cut','Velour Tear','Solstice Gem','Quartz Drop','Aeon Shard','Halo Circle','Fern Arch'];
+const pDescs=['Delicate rose gold pendant — perfect gift for her or for yourself.','Handcrafted with ethically sourced metals and a soft polished finish.','A timeless design that layers beautifully with any necklace.','Minimalist silhouette with gentle texture and warm rose gold tone.','Lightweight and romantic — ideal as a birthday gift or everyday wear.'];
+const fills=['#F9EEE8','#FDF0EC','#F5E8E8','#FCF0F0','#F0E4E4'];
+function makeSVG(seed){
+  const t=['teardrop','star','moon','circle','diamond','hexagon'][seed%6];const c=fills[seed%5];let s='';
+  if(t==='teardrop')s=`<ellipse cx="100" cy="118" rx="36" ry="50" fill="white" stroke="#C4797A" stroke-width="1.2"/><ellipse cx="100" cy="110" rx="22" ry="32" fill="#F2C4C4" stroke="#E8A0A1" stroke-width=".7" opacity=".7"/>`;
+  else if(t==='star')s=`<polygon points="100,70 109,94 135,94 114,109 122,134 100,119 78,134 86,109 65,94 91,94" fill="white" stroke="#C4797A" stroke-width="1.2"/><circle cx="100" cy="103" r="10" fill="#F2C4C4"/>`;
+  else if(t==='moon')s=`<circle cx="103" cy="112" r="42" fill="white" stroke="#C4797A" stroke-width="1.2"/><circle cx="118" cy="106" r="32" fill="${c}"/>`;
+  else if(t==='circle')s=`<circle cx="100" cy="115" r="42" fill="white" stroke="#C4797A" stroke-width="1.2"/><circle cx="100" cy="115" r="28" fill="#F2C4C4" opacity=".7"/>`;
+  else if(t==='diamond')s=`<polygon points="100,70 134,112 100,154 66,112" fill="white" stroke="#C4797A" stroke-width="1.2"/><polygon points="100,80 126,112 100,144 74,112" fill="#F2C4C4" opacity=".7"/>`;
+  else s=`<polygon points="100,70 127,85 127,115 100,130 73,115 73,85" fill="white" stroke="#C4797A" stroke-width="1.2"/><circle cx="100" cy="100" r="16" fill="#F2C4C4" opacity=".7"/>`;
+  return `<svg width="200" height="200" viewBox="0 0 200 200" fill="none"><rect width="200" height="200" fill="${c}"/><line x1="100" y1="10" x2="100" y2="66" stroke="#C4797A" stroke-width="1.2" stroke-dasharray="3 3"/>${s}</svg>`;
+}
+const allProducts=Array.from({length:50},(_,i)=>({id:i+1,name:pNames[i%pNames.length]+(i>=pNames.length?` ${Math.floor(i/pNames.length)+1}`:''),category:cats[i%cats.length],desc:pDescs[i%pDescs.length],price:28+(i*7)%120,seed:i,isNew:i<6}));
+let visibleCount=12,activeFilter='all',searchQ='',sortMode='default';
+function getFiltered(){
+  let list=[...allProducts];
+  if(activeFilter!=='all')list=list.filter(p=>p.category===activeFilter);
+  if(searchQ)list=list.filter(p=>p.name.toLowerCase().includes(searchQ)||catLabel[p.category].toLowerCase().includes(searchQ));
+  if(sortMode==='price-asc')list.sort((a,b)=>a.price-b.price);else if(sortMode==='price-desc')list.sort((a,b)=>b.price-a.price);else if(sortMode==='name-asc')list.sort((a,b)=>a.name.localeCompare(b.name));
+  return list;
+}
+function renderCat(){
+  const grid=document.getElementById('catGrid');const filtered=getFiltered();const slice=filtered.slice(0,visibleCount);
+  document.getElementById('prodCount').textContent=`Showing ${Math.min(visibleCount,filtered.length)} of ${filtered.length} products`;
+  document.getElementById('loadMoreBtn').style.display=filtered.length>visibleCount?'block':'none';
+  if(!filtered.length){grid.innerHTML='<div class="no-results"><p>No products found — try a different search.</p></div>';return;}
+  grid.innerHTML=slice.map(p=>{
+    const url=isUSA?AMAZON_STORE:ETSY_STORE;const label=isUSA?'Amazon':'Etsy';const icon=isUSA?'🇺🇸':'🌍';const nb=p.isNew?'<div class="new-badge">New</div>':'';
+    return `<div class="prod-card"><a href="product.html?id=${p.id}&name=${encodeURIComponent(p.name)}&price=${p.price}&seed=${p.seed}&cat=${p.category}" class="prod-card-link"><div class="prod-img">${makeSVG(p.seed)}${nb}<div class="geo-badge">${icon} ${label}</div></div><div class="prod-body"><div class="prod-cat">${catLabel[p.category]}</div><div class="prod-name">${p.name}</div><div class="prod-desc">${p.desc}</div></div></a><div class="prod-footer" style="padding:0 20px 18px"><div class="prod-price">$${p.price}</div><div class="prod-actions"><button class="add-cart-btn" onclick='addToCart(${JSON.stringify({id:p.id,name:p.name,price:p.price,seed:p.seed})})'>Add to Cart</button><button class="quick-buy-btn" title="Quick View" onclick='openBuyModal(${JSON.stringify({name:p.name,desc:p.desc,price:p.price,seed:p.seed})})'>🔍</button></div></div></div>`;
+  }).join('');
+}
+function loadMore(){visibleCount+=12;renderCat();}
+function setFilter(btn,cat){activeFilter=cat;visibleCount=12;document.querySelectorAll('.cat-pill').forEach(t=>t.classList.remove('active'));btn.classList.add('active');filterCat();}
+function filterCat(){searchQ=document.getElementById('catSearch').value.toLowerCase().trim();sortMode=document.getElementById('sortSel').value;visibleCount=12;renderCat();}
+
+// QUICK BUY MODAL
+function openBuyModal(p){
+  document.getElementById('modalName').textContent=p.name;
+  document.getElementById('modalDesc').textContent=p.desc;
+  document.getElementById('modalPrice').textContent='$'+p.price;
+  document.getElementById('modalImg').innerHTML=makeSVG(p.seed);
+  document.getElementById('modalAmazon').href=AMAZON_STORE;
+  document.getElementById('modalEtsy').href=ETSY_STORE;
+  document.getElementById('stripeBtn').href=STRIPE_BASE;
+  document.getElementById('buyModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeBuyModal(){document.getElementById('buyModal').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBuyModal();});
+
+renderCat();
+
+// ─── CART SYSTEM ────────────────────────────────────────────────
+let cart = JSON.parse(localStorage.getItem('pp_cart') || '[]');
+
+function saveCart(){ localStorage.setItem('pp_cart', JSON.stringify(cart)); updateCartUI(); }
+
+function addToCart(p){
+  const existing = cart.find(i => i.id === p.id);
+  if(existing){ existing.qty++; } else { cart.push({...p, qty:1}); }
+  saveCart();
+  openCart();
+  // Flash feedback on button
+  const btns = document.querySelectorAll('.add-cart-btn');
+  btns.forEach(b => { if(b.closest('.prod-card') && b.closest('.prod-card').querySelector('.prod-name')?.textContent === p.name){ b.textContent='Added ✓'; b.style.background='var(--rose)'; b.style.color='white'; setTimeout(()=>{ b.textContent='Add to Cart'; b.style.background=''; b.style.color=''; },1500); }});
+}
+
+function removeFromCart(id){ cart = cart.filter(i => i.id !== id); saveCart(); }
+
+function changeQty(id, delta){
+  const item = cart.find(i => i.id === id);
+  if(item){ item.qty += delta; if(item.qty <= 0) removeFromCart(id); else saveCart(); }
+}
+
+function updateCartUI(){
+  const total = cart.reduce((s,i) => s + i.qty, 0);
+  const subtotal = cart.reduce((s,i) => s + i.price * i.qty, 0);
+  document.getElementById('cartCount').textContent = total;
+  document.getElementById('cartCount').style.display = total > 0 ? 'flex' : 'none';
+  const hc = document.getElementById('cartHeaderCount');
+  if(hc) hc.textContent = total > 0 ? `(${total} item${total>1?'s':''})` : '';
+  const empty = document.getElementById('cartEmpty');
+  const footer = document.getElementById('cartFooter');
+  const items = document.getElementById('cartItems');
+  if(cart.length === 0){
+    if(empty) empty.style.display = 'block';
+    if(footer) footer.style.display = 'none';
+    const existing = items.querySelectorAll('.cart-item');
+    existing.forEach(e => e.remove());
+  } else {
+    if(empty) empty.style.display = 'none';
+    if(footer) footer.style.display = 'block';
+    const existing = items.querySelectorAll('.cart-item');
+    existing.forEach(e => e.remove());
+    cart.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `<div class="cart-item-img">${makeSVG(item.seed)}</div><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">$${item.price}</div><div class="cart-item-qty"><button onclick="changeQty(${item.id},-1)">−</button><span>${item.qty}</span><button onclick="changeQty(${item.id},1)">+</button><button onclick="removeFromCart(${item.id})" style="margin-left:8px;color:var(--soft);font-size:11px;background:none;border:none;cursor:pointer">Remove</button></div></div>`;
+      items.appendChild(div);
+    });
+    document.getElementById('cartTotal').textContent = '$' + subtotal.toFixed(2);
+  }
+}
+
+function openCart(){ document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartOverlay').classList.remove('open'); document.body.style.overflow=''; }
+function saveCartForCheckout(){ localStorage.setItem('pp_cart', JSON.stringify(cart)); }
+
+// Init
+updateCartUI();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Story | PoshPendant® | Handcrafted Gemstone Jewelry from Jaipur</title>
+  <meta name="description" content="PoshPendant is a small-batch gemstone jewelry brand handcrafted in Jaipur, India. Natural gemstones, gold-plated brass, designed for modern women worldwide. Shop via Etsy & Amazon."/>
+  <meta name="keywords" content="handcrafted gemstone jewelry Jaipur, gold plated jewelry India, natural gemstone pendant necklace, boho jewelry for women, PoshPendant"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+
+<canvas class="star-canvas" id="starCanvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="geo-banner" id="geoBanner">
+  <span id="geoFlag">🌍</span>
+  <span id="geoBannerText">Detecting your location…</span>
+  <span class="geo-banner-close" onclick="closeBanner()">✕</span>
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav id="navbar">
+  <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="/shop.html">All Jewelry ▾</a>
+      <ul class="nav-sub">
+        <li><a href="shop.html?cat=necklaces">🪨 Necklaces</a></li>
+        <li><a href="shop.html?cat=bracelets">📿 Bracelets</a></li>
+        <li><a href="shop.html?cat=earrings">✨ Earrings</a></li>
+        <li><a href="shop.html?cat=sets">🎁 Sets</a></li>
+      </ul>
+    </li>
+    <li><a href="/about.html" class="active-page">Our Story</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/wholesale.html">Wholesale / B2B</a></li>
+    <li>
+      <a href="https://wa.me/9119361597" class="nav-whatsapp" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </li>
+    <li><a href="/shop.html" class="nav-shop-btn">Shop Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero" style="padding:80px 60px 48px;text-align:center;position:relative;overflow:hidden">
+  <div class="blob blob1" style="opacity:.45"></div>
+  <div class="blob blob2" style="opacity:.35"></div>
+  <div class="breadcrumb"><a href="/index.html">Home</a> <span style="opacity:.4">›</span> Our Story</div>
+  <div class="eyebrow" style="justify-content:center;margin-bottom:16px">Jaipur, India · Est. 2020</div>
+  <h1 style="margin-bottom:16px">Jewelry Made With <em>Purpose</em></h1>
+  <p style="font-size:16px;color:var(--mid);max-width:580px;margin:0 auto;line-height:1.8">
+    Handcrafted gemstone jewelry from Jaipur's workshops — small-batch, natural stones, designed for modern women who wear their jewelry every day.
+  </p>
+</section>
+
+<!-- ── TRUST STRIP ── -->
+<section class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-strip-item">
+      <span class="trust-strip-icon">🌿</span>
+      <div>
+        <div class="trust-strip-title">Nickel-Free</div>
+        <div class="trust-strip-sub">Safe for sensitive skin</div>
+      </div>
+    </div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item">
+      <span class="trust-strip-icon">↩️</span>
+      <div>
+        <div class="trust-strip-title">7-Day Returns</div>
+        <div class="trust-strip-sub">Hassle-free policy</div>
+      </div>
+    </div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item">
+      <span class="trust-strip-icon">🔒</span>
+      <div>
+        <div class="trust-strip-title">Secure Checkout</div>
+        <div class="trust-strip-sub">Via Etsy & Amazon</div>
+      </div>
+    </div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item">
+      <span class="trust-strip-icon">✈️</span>
+      <div>
+        <div class="trust-strip-title">Ships Worldwide</div>
+        <div class="trust-strip-sub">From Jaipur, India</div>
+      </div>
+    </div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item">
+      <span class="trust-strip-icon">⭐</span>
+      <div>
+        <div class="trust-strip-title">2,000+ Reviews</div>
+        <div class="trust-strip-sub">Rated 4.9 stars</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT — WHO WE ARE ── -->
+<section class="about-section" id="about">
+  <div class="about-visual reveal-left">
+    <div class="about-img-main">
+      <svg width="240" height="260" viewBox="0 0 240 260" fill="none">
+        <rect width="240" height="260" fill="#F9EEE8"/>
+        <defs>
+          <radialGradient id="abg" cx="50%" cy="45%" r="55%">
+            <stop offset="0%" stop-color="#E8A0A1" stop-opacity=".3"/>
+            <stop offset="100%" stop-color="#F9EEE8" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="240" height="260" fill="url(#abg)"/>
+        <!-- Gem shape -->
+        <polygon points="120,60 160,100 120,180 80,100" stroke="#C4797A" stroke-width="1" fill="rgba(196,121,122,.06)" stroke-dasharray="4 4" opacity=".6"/>
+        <polygon points="120,72 150,100 120,162 90,100" stroke="#C4797A" stroke-width="1" fill="rgba(196,121,122,.1)" opacity=".45"/>
+        <circle cx="120" cy="100" r="8" fill="#C4797A" opacity=".3"/>
+        <text x="120" y="210" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#C4797A" letter-spacing="4" opacity=".5">JAIPUR · INDIA</text>
+      </svg>
+    </div>
+    <div class="about-img-accent">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <text x="40" y="32" text-anchor="middle" font-size="26" fill="#C4797A" opacity=".5">💎</text>
+        <text x="40" y="52" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#C4797A" letter-spacing="1" opacity=".5">EST. 2020</text>
+      </svg>
+    </div>
+  </div>
+  <div class="about-text reveal-right">
+    <div class="eyebrow">Our Promise</div>
+    <h2 style="margin-bottom:20px">Born in Jaipur,<br>Worn <em>Worldwide</em></h2>
+    <p class="about-body">PoshPendant is a small-batch jewelry brand handcrafted in Jaipur — India's gemstone capital. Every piece is made in our workshop using <strong style="color:var(--ink)">natural gemstones and 18K gold-plated brass</strong>, finished by hand to export-quality standards.</p>
+    <p class="about-body">We design for the modern woman who wears her jewelry every day — not saved for special occasions. Lightweight, nickel-free, and thoughtfully made. Each piece ships via Etsy and Amazon for secure checkout and buyer protection worldwide.</p>
+    <div class="about-stats">
+      <div><div class="stat-num">2k+</div><div class="stat-label">Happy Customers</div></div>
+      <div><div class="stat-num">32</div><div class="stat-label">Countries Reached</div></div>
+      <div><div class="stat-num">★ 4.9</div><div class="stat-label">Average Rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HAWA MAHAL HERO BANNER ── -->
+<section class="hawaMahal-hero reveal">
+  <div class="hm-overlay"></div>
+  <div class="hm-content">
+    <div class="eyebrow reveal" style="color:var(--rose-light);justify-content:center">Jaipur, Rajasthan · The Pink City</div>
+    <h2 class="reveal" style="color:white;font-size:clamp(32px,5vw,64px);margin-bottom:16px;text-align:center">The <em>Jewellery Capital</em><br>of the World</h2>
+    <p class="reveal d1" style="color:rgba(255,255,255,.7);font-size:17px;max-width:640px;margin:0 auto;text-align:center;line-height:1.9">Behind every PoshPendant piece stands 300 years of Jaipur's gemstone heritage — the same city whose craftsmen once set rubies into maharaja crowns now crafts your everyday pendant.</p>
+  </div>
+</section>
+
+<!-- ── WHY JAIPUR — DEEP SECTION ── -->
+<section class="jaipur-why-section">
+
+  <!-- STAT BAND -->
+  <div class="jaipur-stat-band reveal">
+    <div class="jstat"><div class="jstat-num">70%</div><div class="jstat-label">of world's coloured gemstones cut & polished in Jaipur</div></div>
+    <div class="jstat-div"></div>
+    <div class="jstat"><div class="jstat-num">300+</div><div class="jstat-label">years of unbroken jewellery-making tradition</div></div>
+    <div class="jstat-div"></div>
+    <div class="jstat"><div class="jstat-num">800K+</div><div class="jstat-label">artisans employed across Jaipur's gem industry</div></div>
+    <div class="jstat-div"></div>
+    <div class="jstat"><div class="jstat-num">#1</div><div class="jstat-label">India's largest gemstone export hub by volume</div></div>
+  </div>
+
+  <!-- WHY CARDS -->
+  <div class="jaipur-why-inner">
+    <div class="jaipur-why-left reveal-left">
+      <div class="eyebrow">Why Jaipur?</div>
+      <h2 style="margin-bottom:28px">A City Built on<br><em>Gemstones & Gold</em></h2>
+      <p style="font-size:15px;color:var(--mid);line-height:1.9;margin-bottom:20px">
+        Jaipur wasn't just built — it was designed. Founded in 1727 by Maharaja Jai Singh II, the Pink City was conceived as a centre of trade, art and craftsmanship. The Maharaja specifically invited gem traders and jewellers from across the Mughal empire to settle here, gifting them entire neighbourhoods — a tradition that has never stopped.
+      </p>
+      <p style="font-size:15px;color:var(--mid);line-height:1.9;margin-bottom:20px">
+        Today, the <strong style="color:var(--ink)">Johari Bazaar</strong> district in the heart of the city is the world's single largest open-air gemstone market. Thousands of family-run workshops line narrow lanes where raw stones arrive from mines in Africa, Brazil, and across India — and leave as finished jewels bound for Paris, New York and Tokyo.
+      </p>
+      <p style="font-size:15px;color:var(--mid);line-height:1.9">
+        What makes Jaipur irreplaceable isn't just scale — it's <strong style="color:var(--ink)">generational knowledge</strong>. Gem-cutting techniques like <em>kundan</em> (pure gold setting) and <em>meenakari</em> (enamel work) have been passed father to son for centuries. These aren't skills you learn in a factory. They live in the hands of families who have done nothing else for 300 years.
+      </p>
+    </div>
+    <div class="jaipur-why-right reveal-right">
+      <div class="jaipur-fact-card">
+        <div class="jfc-icon">🏛️</div>
+        <div class="jfc-title">Royal Patronage Since 1727</div>
+        <div class="jfc-body">Maharaja Jai Singh II made Jaipur India's first planned city and established gemstone trade as its economic backbone. Royal workshops produced jewels for Mughal courts, eventually supplying European royalty too.</div>
+      </div>
+      <div class="jaipur-fact-card">
+        <div class="jfc-icon">💎</div>
+        <div class="jfc-title">The Johari Bazaar Effect</div>
+        <div class="jfc-body">Being in Jaipur means PoshPendant sources directly from the same markets where global luxury brands buy — at a fraction of the cost, with zero middlemen. Every rupee saved goes into stone quality, not supply chain markups.</div>
+      </div>
+      <div class="jaipur-fact-card">
+        <div class="jfc-icon">🤲</div>
+        <div class="jfc-title">Kundan & Meenakari Mastery</div>
+        <div class="jfc-body">Our artisans are trained in kundan setting — the art of embedding gemstones in pure gold foil — a 600-year-old technique that produces the most secure, luminous stone settings in the world.</div>
+      </div>
+      <div class="jaipur-fact-card">
+        <div class="jfc-icon">🌍</div>
+        <div class="jfc-title">Global Export Hub</div>
+        <div class="jfc-body">Jaipur exports over ₹20,000 crore of gems and jewellery annually. Brands like Cartier, Bulgari and Chopard quietly source stones and craftwork from this city. We bring that same quality — directly to you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── JAIPUR DARK BLOCK WITH GEMSTONES ── -->
+<section class="jaipur-section">
+  <div class="jaipur-inner">
+    <div class="jaipur-text reveal">
+      <div class="eyebrow" style="color:var(--rose-light)">Sourced at the Source</div>
+      <h2 style="color:white;margin-bottom:20px">Every Stone We Use<br><em>Comes from Here</em></h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.6);line-height:1.9;margin-bottom:20px">
+        We don't import finished gemstones. We walk Jaipur's markets ourselves, selecting raw stones by hand before they ever reach a cutting wheel. This means we control quality at every stage — from the moment a stone leaves the earth to the moment it arrives at your door.
+      </p>
+      <p style="font-size:15px;color:rgba(255,255,255,.6);line-height:1.9;margin-bottom:28px">
+        Jaipur cuts <strong style="color:white">70% of the world's coloured gemstones</strong> — jade from Myanmar, moonstone from Sri Lanka, rose quartz from Brazil, amethyst from Zambia. They all pass through this city. Being here means we get first pick, at source price, with full traceability.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="/shop.html" class="btn btn-primary">Shop the Collection</a>
+        <a href="/contact.html" class="btn btn-outline" style="border-color:rgba(196,121,122,.4);color:var(--rose-light)">Ask Us Anything</a>
+      </div>
+    </div>
+    <div class="jaipur-gems reveal-right">
+      <div class="gem-grid">
+        <div class="gem-card"><span class="gem-emoji">🟢</span><div class="gem-name">Green Jade</div><div class="gem-prop">Harmony & Protection</div><div class="gem-origin">Myanmar origin</div></div>
+        <div class="gem-card"><span class="gem-emoji">🌕</span><div class="gem-name">Moonstone</div><div class="gem-prop">Intuition & Growth</div><div class="gem-origin">Sri Lanka origin</div></div>
+        <div class="gem-card"><span class="gem-emoji">🌸</span><div class="gem-name">Rose Quartz</div><div class="gem-prop">Love & Compassion</div><div class="gem-origin">Brazil origin</div></div>
+        <div class="gem-card"><span class="gem-emoji">🔴</span><div class="gem-name">Bloodstone</div><div class="gem-prop">Strength & Vitality</div><div class="gem-origin">India origin</div></div>
+        <div class="gem-card"><span class="gem-emoji">💜</span><div class="gem-name">Amethyst</div><div class="gem-prop">Calm & Clarity</div><div class="gem-origin">Zambia origin</div></div>
+        <div class="gem-card"><span class="gem-emoji">🔵</span><div class="gem-name">Lapis Lazuli</div><div class="gem-prop">Wisdom & Truth</div><div class="gem-origin">Afghanistan origin</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BEHIND THE CRAFT ── -->
+<section class="craft-section" id="craft">
+  <div class="section-header">
+    <div class="eyebrow reveal">Behind the Craft</div>
+    <h2 class="reveal">How Every Piece<br><em>Comes to Life</em></h2>
+    <p class="section-sub reveal">From raw gemstone to a piece you'll wear every day — here's the journey inside our Jaipur workshop.</p>
+  </div>
+  <div class="craft-steps">
+    <div class="craft-step reveal">
+      <div class="craft-step-num">✏️</div>
+      <div class="craft-step-title">1. Designed in Jaipur</div>
+      <div class="craft-step-desc">Each design starts as a hand sketch in our Jaipur studio. We spend weeks refining proportions and the feeling a piece should carry before a single stone is touched.</div>
+    </div>
+    <div class="craft-step reveal d1">
+      <div class="craft-step-num">💎</div>
+      <div class="craft-step-title">2. Gemstones Selected</div>
+      <div class="craft-step-desc">Natural stones are hand-selected from Jaipur's gemstone markets — jade, moonstone, rose quartz, bloodstone. Only stones that meet our clarity and colour standards make it in.</div>
+    </div>
+    <div class="craft-step reveal d2">
+      <div class="craft-step-num">⚒️</div>
+      <div class="craft-step-title">3. Set by Hand</div>
+      <div class="craft-step-desc">Skilled artisans set each gemstone individually in 18K gold-plated brass. No machines, no shortcuts. Each piece takes 2–6 hours to complete.</div>
+    </div>
+    <div class="craft-step reveal d3">
+      <div class="craft-step-num">✨</div>
+      <div class="craft-step-title">4. Export-Quality Finish</div>
+      <div class="craft-step-desc">Before leaving our workshop, every piece passes a 12-point quality check — finish, clasp integrity, plating consistency, and the final polish that makes it shine.</div>
+    </div>
+  </div>
+
+  <!-- FOUNDER QUOTE -->
+  <div class="craft-story">
+    <div class="craft-story-visual reveal-left">
+      <div class="craft-story-img">
+        <svg width="200" height="180" viewBox="0 0 200 180" fill="none">
+          <circle cx="100" cy="90" r="80" stroke="rgba(196,121,122,.25)" stroke-width="1" stroke-dasharray="6 6"/>
+          <circle cx="100" cy="90" r="52" stroke="rgba(196,121,122,.18)" stroke-width="1"/>
+          <text x="100" y="84" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="rgba(196,121,122,.65)" letter-spacing="3">POSH</text>
+          <text x="100" y="102" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="rgba(196,121,122,.65)" letter-spacing="2">PENDANT</text>
+          <text x="100" y="120" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="rgba(255,255,255,.25)" letter-spacing="4">JAIPUR</text>
+        </svg>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <span class="craft-quote-mark">"</span>
+      <p class="craft-quote">I started PoshPendant in Jaipur with a sketchbook, a small workshop, and one belief — that a woman's everyday jewelry should feel like it was made just for her, not picked off a shelf.</p>
+      <p class="craft-body">Jaipur gave me access to the world's finest gemstones right at my doorstep. What began as gifting pieces to friends quietly turned into orders from across India, then the UK, then Australia, then the US. Women were wearing PoshPendant pieces to their weddings, job interviews, first dates.</p>
+      <p class="craft-body">Today we ship to over 32 countries — but every single piece is still made the same way. One at a time, in small batches, by hands that genuinely care. That will never change.</p>
+      <div class="craft-sig">— Founder, PoshPendant · Jaipur, India</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY POSHPENDANT ── -->
+<section class="why-section">
+  <div class="section-header">
+    <div class="eyebrow reveal">Why PoshPendant</div>
+    <h2 class="reveal">Jewelry You Can <em>Feel Good About</em></h2>
+    <p class="section-sub reveal">Three reasons thousands of women across 32 countries choose PoshPendant for everyday wear and gifting.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-icon">🌿</span>
+      <div class="why-title">Ethically Sourced Gemstones</div>
+      <div class="why-desc">Every natural stone — jade, moonstone, rose quartz, amethyst — is sourced directly from Jaipur's certified gemstone markets. Beautiful jewelry shouldn't cost the earth.</div>
+    </div>
+    <div class="why-card reveal d1">
+      <span class="why-icon">🤲</span>
+      <div class="why-title">Small-Batch Craftsmanship</div>
+      <div class="why-desc">We never mass-produce. Every piece is handcrafted in limited batches in our Jaipur workshop, finished by skilled artisans to export-quality standards.</div>
+    </div>
+    <div class="why-card reveal d2">
+      <span class="why-icon">☀️</span>
+      <div class="why-title">Designed for Every Day</div>
+      <div class="why-desc">Lightweight, nickel-free, and made for daily wear — not saved for special occasions. Our jewelry is built to be comfortable enough to never take off.</div>
+    </div>
+    <div class="why-card reveal d3">
+      <span class="why-icon">🛡️</span>
+      <div class="why-title">Trusted Platforms</div>
+      <div class="why-desc">All orders are fulfilled via Etsy and Amazon — platforms with built-in buyer protection, secure checkout, and easy returns. Shop with complete confidence.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BRAND STORY / SEO ── -->
+<section class="story-section" id="story">
+  <div class="story-grid">
+    <div class="story-visual reveal-left">
+      <div class="story-img-main">
+        <svg width="240" height="260" viewBox="0 0 240 260" fill="none">
+          <rect width="240" height="260" fill="#F0DDD4"/>
+          <defs>
+            <radialGradient id="sg" cx="50%" cy="45%" r="55%">
+              <stop offset="0%" stop-color="#E8A0A1" stop-opacity=".4"/>
+              <stop offset="100%" stop-color="#F0DDD4" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="240" height="260" fill="url(#sg)"/>
+          <text x="120" y="122" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#C4797A" letter-spacing="5" opacity=".6">POSH</text>
+          <text x="120" y="145" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#C4797A" letter-spacing="3" opacity=".6">PENDANT</text>
+          <circle cx="120" cy="132" r="65" stroke="#C4797A" stroke-width=".8" stroke-dasharray="5 5" fill="none" opacity=".35"/>
+        </svg>
+      </div>
+      <div class="story-img-accent">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <text x="40" y="30" text-anchor="middle" font-family="Playfair Display,serif" font-size="22" fill="#C4797A" opacity=".5">♡</text>
+          <text x="40" y="50" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#C4797A" letter-spacing="1" opacity=".5">HANDCRAFTED</text>
+          <text x="40" y="62" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#C4797A" letter-spacing="1" opacity=".5">IN JAIPUR</text>
+        </svg>
+      </div>
+    </div>
+    <div class="reveal-right" style="padding:20px 0">
+      <div class="eyebrow">Our Positioning</div>
+      <h2 style="margin-bottom:20px">Handcrafted Gemstone Jewelry<br><em>from Jaipur</em></h2>
+      <p class="story-body">PoshPendant makes <strong>natural gemstone jewelry in Jaipur</strong> — India's gemstone capital. Each piece uses <strong>18K gold-plated brass</strong> set with hand-selected stones like jade, moonstone, rose quartz, and amethyst.</p>
+      <p class="story-body">We design for <strong>everyday wear and gifting</strong> — whether you're shopping for a <strong>birthday gift for her</strong>, a <strong>bridal jewellery set</strong>, or simply treating yourself to something beautiful that you'll actually wear daily.</p>
+      <p class="story-body">Orders are fulfilled via <strong>Etsy and Amazon</strong> for secure, tracked delivery worldwide. Buy with confidence — full buyer protection on every order.</p>
+      <div class="story-keywords">
+        <span class="story-keyword">Gemstone Jewelry Jaipur</span>
+        <span class="story-keyword">Gold-Plated Brass</span>
+        <span class="story-keyword">Natural Jade Bracelet</span>
+        <span class="story-keyword">Moonstone Pendant</span>
+        <span class="story-keyword">Rose Quartz Necklace</span>
+        <span class="story-keyword">Gifts for Her</span>
+        <span class="story-keyword">Bridal Jewelry India</span>
+        <span class="story-keyword">Boho Jewelry</span>
+        <span class="story-keyword">Handcrafted Necklace</span>
+        <span class="story-keyword">Everyday Jewelry</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BLOG / JOURNAL ── -->
+<section class="blog-section">
+  <div class="section-header">
+    <div class="eyebrow reveal">Jewelry Journal</div>
+    <h2 class="reveal">Gemstone Guides &amp; <em>Inspiration</em></h2>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card reveal">
+      <div class="blog-img" style="background:var(--blush)">💚</div>
+      <div class="blog-body">
+        <div class="blog-tag">Gemstone Guide</div>
+        <div class="blog-title">Green Jade Bracelet: Meaning, Benefits &amp; How to Style It</div>
+        <div class="blog-excerpt">Jade is one of Jaipur's most prized stones — hand-knotted on gold-plated brass for a calming, protective everyday piece.</div>
+        <a href="/shop.html" class="blog-read">Shop Jade Collection →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal d1">
+      <div class="blog-img" style="background:#FFF0F5">🌕</div>
+      <div class="blog-body">
+        <div class="blog-tag">Gift Guide</div>
+        <div class="blog-title">Best Gemstone Jewelry Gifts for Her — Curated from Jaipur</div>
+        <div class="blog-excerpt">From moonstone pendants to rose quartz bracelets — our most-loved gift picks for birthdays, anniversaries, and just because.</div>
+        <a href="/shop.html" class="blog-read">Shop Gift Ideas →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal d2">
+      <div class="blog-img" style="background:#F5F0FF">💜</div>
+      <div class="blog-body">
+        <div class="blog-tag">Jewelry Care</div>
+        <div class="blog-title">How to Care for Gold-Plated Gemstone Jewelry</div>
+        <div class="blog-excerpt">Gold-plated brass lasts beautifully with the right care. Here's everything you need to know to keep your PoshPendant pieces shining.</div>
+        <a href="/contact.html" class="blog-read">Contact for Tips →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA STRIP ── -->
+<section style="padding:80px 60px;background:var(--rose);text-align:center">
+  <h2 style="color:white;margin-bottom:16px">Ready to Find Your<br><em style="color:rgba(255,255,255,.8)">Perfect Piece?</em></h2>
+  <p style="color:rgba(255,255,255,.7);font-size:15px;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7">
+    Browse handcrafted gemstone jewelry — natural jade, moonstone, rose quartz, and more. Made in Jaipur. Ships worldwide via Etsy &amp; Amazon.
+  </p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="/shop.html" class="btn" style="background:white;color:var(--rose);border:none;display:inline-flex">Browse All Jewelry</a>
+    <a href="/wholesale.html" class="btn btn-outline" style="border-color:rgba(255,255,255,.5);color:white;display:inline-flex">Wholesale Enquiries</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">
+    <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+    <p class="footer-tagline">Handcrafted gemstone jewelry from Jaipur, India. Natural stones, gold-plated brass, designed for everyday wear. Shipped worldwide via Etsy &amp; Amazon.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://www.instagram.com/posh__pendants/" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      <a class="social-btn" href="#" aria-label="Pinterest">📌</a>
+      <a class="social-btn" href="https://wa.me/9119361597" target="_blank" rel="noopener" aria-label="WhatsApp" style="background:rgba(37,211,102,.15)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Shop</div>
+    <ul>
+      <li><a href="/shop.html">All Jewelry</a></li>
+      <li><a href="shop.html?cat=necklaces">Necklaces</a></li>
+      <li><a href="shop.html?cat=bracelets">Bracelets</a></li>
+      <li><a href="shop.html?cat=earrings">Earrings</a></li>
+      <li><a href="https://www.amazon.com/stores/page/69770F17-3394-4D3F-8AEC-9A48CE53B447?maas=maas_adg_605FA232F4C4195D3BA227BA2C68768D_afap_abs&ref_=aa_maas&tag=maas" target="_blank">Amazon Store</a></li>
+      <li><a href="https://poshpendantjaipur.etsy.com" target="_blank">Etsy Shop</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Collections</div>
+    <ul>
+      <li><a href="shop.html?gem=jade">Green Jade</a></li>
+      <li><a href="shop.html?gem=moonstone">Moonstone</a></li>
+      <li><a href="shop.html?gem=rose-quartz">Rose Quartz</a></li>
+      <li><a href="shop.html?gem=amethyst">Amethyst</a></li>
+      <li><a href="shop.html?gem=bloodstone">Bloodstone</a></li>
+      <li><a href="/wholesale.html">Wholesale / B2B</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Info</div>
+    <ul>
+      <li><a href="/about.html">Our Story</a></li>
+      <li><a href="/contact.html">Contact Us</a></li>
+      <li><a href="contact.html#faq">FAQ</a></li>
+      <li><a href="shipping.html">Shipping &amp; Returns</a></li>
+      <li><a href="care.html">Jewelry Care Guide</a></li>
+      <li><a href="/wholesale.html">Wholesale Enquiries</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 PoshPendant®. All rights reserved. Handcrafted in Jaipur, India 🌸</div>
+    <div class="footer-copy" style="display:flex;align-items:center;gap:16px">
+      <a href="https://wa.me/9119361597" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:11px;display:flex;align-items:center;gap:5px;transition:color .3s" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='rgba(255,255,255,.35)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+      <span style="color:rgba(255,255,255,.15)">·</span>
+      <span style="color:rgba(255,255,255,.18)">poshpendant.store</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/shared.js"></script>
+<script>
+  // Hamburger menu toggle
+  const ham = document.getElementById('navHamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if(ham) ham.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-open');
+    ham.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

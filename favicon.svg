@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#C4797A"/>
+  
+  <!-- Chain loop at top -->
+  <rect x="29" y="6" width="6" height="3" rx="1.5" fill="white" opacity="0.9"/>
+  <!-- Chain line -->
+  <line x1="32" y1="9" x2="32" y2="18" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Pendant teardrop outer -->
+  <ellipse cx="32" cy="38" rx="13" ry="18" fill="white" opacity="0.95"/>
+  <!-- Pendant teardrop inner highlight -->
+  <ellipse cx="32" cy="36" rx="8" ry="12" fill="#F2C4C4" opacity="0.7"/>
+  <!-- Inner glow -->
+  <ellipse cx="32" cy="34" rx="4" ry="6" fill="#C4797A" opacity="0.35"/>
+  <!-- Shine spot -->
+  <ellipse cx="28" cy="30" rx="2.5" ry="3.5" fill="white" opacity="0.6" transform="rotate(-15 28 30)"/>
+</svg>

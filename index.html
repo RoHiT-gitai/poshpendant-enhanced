@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PoshPendant® | Handcrafted Gemstone Jewelry from Jaipur | Gifts for Her</title>
+  <meta name="description" content="PoshPendant — handcrafted gemstone jewelry from Jaipur, India. Natural jade, moonstone, rose quartz & amethyst in 18K gold-plated brass. Perfect gifts for her. Ships worldwide via Etsy & Amazon."/>
+  <meta name="keywords" content="handcrafted gemstone jewelry Jaipur, natural jade bracelet, moonstone pendant necklace, rose quartz jewelry, gold plated jewelry India, gifts for her, boho jewelry"/>
+  <link rel="canonical" href="https://poshpendant.store/"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+
+<canvas class="star-canvas" id="starCanvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="geo-banner" id="geoBanner">
+  <span id="geoFlag">🌍</span>
+  <span id="geoBannerText">Detecting your location…</span>
+  <span class="geo-banner-close" onclick="closeBanner()">✕</span>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html" class="active-page">Home</a></li>
+    <li class="nav-dropdown"><a href="/shop.html">All Jewelry ▾</a>
+      <ul class="nav-sub">
+        <li><a href="/necklaces.html">🪨 Necklaces</a></li>
+        <li><a href="/bracelets.html">📿 Bracelets</a></li>
+        <li><a href="/earrings.html">✨ Earrings</a></li>
+        <li><a href="/gifts.html">🎁 Gift for Her</a></li>
+      </ul>
+    </li>
+    <li><a href="/about.html">Our Story</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/wholesale.html">Wholesale</a></li>
+    <li><a href="https://wa.me/9119361597" class="nav-whatsapp" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp
+    </a></li>
+    <li><a href="/shop.html" class="nav-shop-btn">Shop Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div>
+  <div class="hero-left">
+    <div class="eyebrow">Handcrafted in Jaipur, India · Est. 2020</div>
+    <h1>Gemstone Jewelry<br><em>Made for</em><br>Everyday Wear</h1>
+    <p class="hero-sub">Natural jade, moonstone, rose quartz &amp; amethyst — handset in 18K gold-plated brass in our Jaipur workshop. Small-batch, nickel-free, designed for the modern woman who wears her jewelry every day.</p>
+    <div class="btn-group">
+      <a href="/shop.html" class="btn btn-primary">Browse All Jewelry</a>
+      <a href="/about.html" class="btn btn-outline">Our Jaipur Story</a>
+    </div>
+    <div class="trust-badges">
+      <div class="trust-badge"><div class="trust-badge-icon">💎</div>Natural Gemstones</div>
+      <div class="trust-badge"><div class="trust-badge-icon">🌿</div>Nickel-Free</div>
+      <div class="trust-badge"><div class="trust-badge-icon">✈️</div>Ships Worldwide</div>
+      <div class="trust-badge"><div class="trust-badge-icon">⭐</div>4.9 Star Rated</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-card-main">
+        <svg width="220" height="280" viewBox="0 0 220 280" fill="none"><defs><radialGradient id="hg" cx="50%" cy="40%" r="55%"><stop offset="0%" stop-color="#E8A0A1" stop-opacity=".5"/><stop offset="100%" stop-color="#F9EEE8" stop-opacity="0"/></radialGradient></defs><rect width="220" height="280" fill="#F9EEE8"/><rect width="220" height="280" fill="url(#hg)"/>
+        <!-- Gemstone pendant -->
+        <line x1="110" y1="20" x2="110" y2="90" stroke="#C4797A" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <polygon points="110,90 140,130 110,175 80,130" fill="rgba(196,121,122,.15)" stroke="#C4797A" stroke-width="1.2"/>
+        <polygon points="110,100 132,130 110,162 88,130" fill="rgba(196,121,122,.25)" stroke="#E8A0A1" stroke-width=".8"/>
+        <circle cx="98" cy="118" r="5" fill="white" fill-opacity=".7"/>
+        <text x="110" y="210" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#C4797A" letter-spacing="3" opacity=".5">JAIPUR · INDIA</text>
+        </svg>
+      </div>
+      <div class="hero-tag"><div class="dot-live"></div>500+ Designs Available</div>
+      <div class="hero-tag2"><span class="hero-tag2-num">4.9★</span>Rated by<br>2,000+ buyers</div>
+      <div class="hero-card-float">
+        <div class="float-label">🏆 Bestseller</div>
+        <div class="float-name">Green Jade Bracelet</div>
+        <div class="float-price">From $38</div>
+        <div class="float-stars">★★★★★</div>
+        <div class="float-reviews">Harmony &amp; Protection Stone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-strip-item"><span class="trust-strip-icon">🌿</span><div><div class="trust-strip-title">Nickel-Free</div><div class="trust-strip-sub">Safe for sensitive skin</div></div></div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item"><span class="trust-strip-icon">↩️</span><div><div class="trust-strip-title">7-Day Returns</div><div class="trust-strip-sub">Hassle-free policy</div></div></div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item"><span class="trust-strip-icon">🔒</span><div><div class="trust-strip-title">Secure Checkout</div><div class="trust-strip-sub">Via Etsy &amp; Amazon</div></div></div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item"><span class="trust-strip-icon">✈️</span><div><div class="trust-strip-title">Ships Worldwide</div><div class="trust-strip-sub">From Jaipur, India</div></div></div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item"><span class="trust-strip-icon">⭐</span><div><div class="trust-strip-title">2,000+ Reviews</div><div class="trust-strip-sub">Rated 4.9 stars</div></div></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip"><div class="marquee-track">
+  <span class="marquee-item"><span class="marquee-dot"></span>Handcrafted in Jaipur</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Natural Gemstones</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>18K Gold-Plated Brass</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Nickel-Free &amp; Safe</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Green Jade · Moonstone · Rose Quartz</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Available on Amazon</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Available on Etsy</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>★ 4.9 Rated · 2,000+ Reviews</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Ships to 32+ Countries</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Handcrafted in Jaipur</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Natural Gemstones</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>18K Gold-Plated Brass</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Nickel-Free &amp; Safe</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Green Jade · Moonstone · Rose Quartz</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Available on Amazon</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Available on Etsy</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>★ 4.9 Rated · 2,000+ Reviews</span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Ships to 32+ Countries</span>
+</div></div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item reveal"><span class="stat-number" data-target="500">0</span><span class="stat-text">Unique Designs</span></div>
+  <div class="stat-item reveal d1"><span class="stat-number" data-target="2000">0</span><span class="stat-text">Happy Customers</span></div>
+  <div class="stat-item reveal d2"><span class="stat-number" data-target="32">0</span><span class="stat-text">Countries Reached</span></div>
+  <div class="stat-item reveal d3"><span class="stat-number" data-target="6">0</span><span class="stat-text">Natural Gemstones</span></div>
+</div>
+
+<!-- BRAND STORY BLOCK -->
+<section style="padding:56px 60px;background:var(--blush);text-align:center;border-top:1px solid rgba(196,121,122,.1)">
+  <div style="max-width:700px;margin:0 auto">
+    <div class="eyebrow reveal" style="justify-content:center">Who We Are</div>
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--ink);line-height:1.7;margin-top:16px;margin-bottom:20px">
+      "PoshPendant is a small-batch jewelry brand handcrafted in Jaipur — India's gemstone capital. We use natural stones and 18K gold-plated brass to make jewelry that's beautiful enough to gift, comfortable enough to never take off."
+    </p>
+    <p class="reveal" style="font-size:14px;color:var(--soft);letter-spacing:.12em;text-transform:uppercase">— Founder, PoshPendant · Jaipur, India</p>
+  </div>
+</section>
+
+<!-- SHOP BY GEMSTONE -->
+<section class="gift-section" id="gifts">
+  <div class="section-header">
+    <div class="eyebrow reveal">Shop by Gemstone</div>
+    <h2 class="reveal">Find Your <em>Stone</em></h2>
+    <p class="section-sub reveal">Each gemstone carries its own energy and meaning. Find the one that speaks to you — or makes the perfect gift.</p>
+  </div>
+  <div class="gift-grid">
+    <a href="/shop.html" class="gift-card gc-1 reveal"><div class="gift-card-bg"></div><div class="gift-card-overlay"></div><div class="gift-card-content"><span class="gift-icon">🟢</span><div class="gift-title">Green Jade</div><div class="gift-sub">Harmony · Protection</div><span class="gift-cta">Shop Now</span></div></a>
+    <a href="/shop.html" class="gift-card gc-2 reveal d1"><div class="gift-card-bg"></div><div class="gift-card-overlay"></div><div class="gift-card-content"><span class="gift-icon">🌕</span><div class="gift-title">Moonstone</div><div class="gift-sub">Intuition · Growth</div><span class="gift-cta">Shop Now</span></div></a>
+    <a href="/shop.html" class="gift-card gc-3 reveal d2"><div class="gift-card-bg"></div><div class="gift-card-overlay"></div><div class="gift-card-content"><span class="gift-icon">🌸</span><div class="gift-title">Rose Quartz</div><div class="gift-sub">Love · Compassion</div><span class="gift-cta">Shop Now</span></div></a>
+    <a href="/shop.html" class="gift-card gc-4 reveal d3"><div class="gift-card-bg"></div><div class="gift-card-overlay"></div><div class="gift-card-content"><span class="gift-icon">💜</span><div class="gift-title">Amethyst</div><div class="gift-sub">Calm · Clarity</div><span class="gift-cta">Shop Now</span></div></a>
+    <a href="/shop.html" class="gift-card gc-5 reveal d4"><div class="gift-card-bg"></div><div class="gift-card-overlay"></div><div class="gift-card-content"><span class="gift-icon">🔴</span><div class="gift-title">Bloodstone</div><div class="gift-sub">Strength · Vitality</div><span class="gift-cta">Shop Now</span></div></a>
+  </div>
+</section>
+
+<!-- WHY POSHPENDANT -->
+<section class="why-section" style="background:var(--ivory)">
+  <div class="section-header">
+    <div class="eyebrow reveal">Why PoshPendant</div>
+    <h2 class="reveal">Three Reasons <em>Women Love Us</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal"><span class="why-icon">💎</span><div class="why-title">Ethically Sourced Gemstones</div><div class="why-desc">Every stone — jade, moonstone, rose quartz, amethyst — is sourced directly from Jaipur's certified gemstone markets. No middlemen, no compromises.</div></div>
+    <div class="why-card reveal d1"><span class="why-icon">🤲</span><div class="why-title">Small-Batch Craftsmanship</div><div class="why-desc">We never mass-produce. Every piece is handcrafted in limited batches in our Jaipur workshop, finished to export-quality standards by skilled artisans.</div></div>
+    <div class="why-card reveal d2"><span class="why-icon">☀️</span><div class="why-title">Made for Every Day</div><div class="why-desc">Lightweight, nickel-free, and designed to be worn daily — not saved for special occasions. Comfortable enough to never take off.</div></div>
+    <div class="why-card reveal d3"><span class="why-icon">🛡️</span><div class="why-title">Trusted Platforms</div><div class="why-desc">All orders fulfilled via Etsy and Amazon — buyer protection, secure checkout, and easy returns on every order, worldwide.</div></div>
+  </div>
+</section>
+
+<!-- FEATURED COLLECTIONS -->
+<section class="section" id="collections">
+  <div class="section-header">
+    <div class="eyebrow reveal">Bestsellers</div>
+    <h2 class="reveal">Most-Loved <em>Pieces</em></h2>
+    <p class="section-sub reveal">Our customers' favourites — handcrafted in Jaipur, shipped to 32+ countries.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="feat-card reveal">
+      <div class="feat-card-art">
+        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
+          <line x1="90" y1="10" x2="90" y2="60" stroke="#C4797A" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <polygon points="90,60 120,95 90,135 60,95" fill="rgba(74,160,74,.15)" stroke="#C4797A" stroke-width="1.2"/>
+          <polygon points="90,70 112,95 90,122 68,95" fill="rgba(74,160,74,.3)" stroke="#88BB88" stroke-width=".8"/>
+        </svg>
+      </div>
+      <div class="feat-card-body">
+        <div class="card-tag">Bestseller · Natural Jade</div>
+        <div class="card-name">Green Jade Bracelet</div>
+        <div class="card-price">From $38 · Daily Protection Stone</div>
+        <a href="/shop.html" class="card-cta">Shop Now →</a>
+      </div>
+    </div>
+    <div class="feat-card reveal d1">
+      <div class="feat-card-art">
+        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
+          <line x1="90" y1="10" x2="90" y2="62" stroke="#C4797A" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <circle cx="90" cy="120" r="48" fill="rgba(196,121,122,.08)" stroke="#C4797A" stroke-width="1.2"/>
+          <circle cx="104" cy="113" r="36" fill="rgba(220,200,240,.4)"/>
+          <circle cx="90" cy="120" r="22" fill="rgba(180,150,210,.3)" stroke="#C4797A" stroke-width=".6"/>
+        </svg>
+      </div>
+      <div class="feat-card-body">
+        <div class="card-tag">Popular · Moonstone</div>
+        <div class="card-name">Moonstone Pendant</div>
+        <div class="card-price">From $52 · Intuition &amp; Growth</div>
+        <a href="/shop.html" class="card-cta">Shop Now →</a>
+      </div>
+    </div>
+    <div class="feat-card reveal d2">
+      <div class="feat-card-art">
+        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
+          <line x1="90" y1="10" x2="90" y2="62" stroke="#C4797A" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <ellipse cx="90" cy="128" rx="40" ry="56" fill="rgba(240,180,180,.15)" stroke="#C4797A" stroke-width="1.2"/>
+          <ellipse cx="90" cy="120" rx="26" ry="38" fill="#F2C4C4" stroke="#E8A0A1" stroke-width=".8" opacity=".7"/>
+          <ellipse cx="90" cy="114" rx="13" ry="20" fill="#C4797A" fill-opacity=".25"/>
+        </svg>
+      </div>
+      <div class="feat-card-body">
+        <div class="card-tag">Gift Favourite · Rose Quartz</div>
+        <div class="card-name">Rose Quartz Necklace</div>
+        <div class="card-price">From $44 · Love &amp; Compassion</div>
+        <a href="/shop.html" class="card-cta">Shop Now →</a>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:48px"><a href="/shop.html" class="btn btn-primary">View All Jewelry</a></div>
+</section>
+
+<!-- SHOP LINKS -->
+<section class="shop-section" id="shop">
+  <div class="eyebrow reveal" style="justify-content:center">Find Us Online</div>
+  <h2 class="reveal" style="margin-top:8px;margin-bottom:12px">Shop PoshPendant<br><em>Where You Love</em></h2>
+  <p class="shop-sub reveal">Secure checkout, buyer protection, tracked shipping worldwide. Orders fulfilled via trusted platforms.</p>
+  <div class="geo-notice reveal"><span id="shopGeoIcon">🌍</span><span id="shopGeoText">Detecting your nearest store…</span></div>
+  <div class="shop-cards">
+    <a href="https://www.amazon.com/stores/page/69770F17-3394-4D3F-8AEC-9A48CE53B447?maas=maas_adg_605FA232F4C4195D3BA227BA2C68768D_afap_abs&ref_=aa_maas&tag=maas" target="_blank" class="shop-card reveal" id="shopAmazon">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24" stroke="#C4797A" stroke-width="1"/><text x="26" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#C4797A" letter-spacing="1">SHOP ON</text><text x="26" y="36" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#C4797A">amazon</text></svg>
+      <div class="shop-card-logo">Amazon</div>
+      <div class="shop-card-desc">🇺🇸 USA · UK · Prime Eligible</div>
+      <div class="shop-card-cta">Visit Store →</div>
+    </a>
+    <a href="https://poshpendantjaipur.etsy.com" target="_blank" class="shop-card reveal d1" id="shopEtsy">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24" stroke="#C4797A" stroke-width="1"/><text x="26" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#C4797A" letter-spacing="1">SHOP ON</text><text x="26" y="36" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#C4797A">etsy</text></svg>
+      <div class="shop-card-logo">Etsy</div>
+      <div class="shop-card-desc">🌍 International · Handmade</div>
+      <div class="shop-card-cta">Visit Shop →</div>
+    </a>
+  </div>
+  <p class="reveal" style="font-size:12px;color:var(--soft);margin-top:24px;letter-spacing:.05em">
+    Orders fulfilled via Etsy &amp; Amazon for secure checkout and buyer protection.<br>
+    <em>PoshPendant is our brand — Etsy &amp; Amazon are our trusted checkout partners.</em>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+    <p class="footer-tagline">Handcrafted gemstone jewelry from Jaipur, India. Natural stones, 18K gold-plated brass, designed for everyday wear. Shipped worldwide via Etsy &amp; Amazon.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://www.instagram.com/posh__pendants/" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      <a class="social-btn" href="#" aria-label="Pinterest">📌</a>
+      <a class="social-btn" href="https://wa.me/9119361597" target="_blank" rel="noopener" aria-label="WhatsApp" style="background:rgba(37,211,102,.15)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-col"><div class="footer-col-title">Shop</div><ul>
+    <li><a href="/shop.html">All Jewelry</a></li>
+    <li><a href="/necklaces.html">Necklaces</a></li>
+    <li><a href="/bracelets.html">Bracelets</a></li>
+    <li><a href="/earrings.html">Earrings</a></li>
+    <li><a href="/gifts.html">Gift for Her</a></li>
+    <li><a href="https://www.amazon.com/stores/page/69770F17-3394-4D3F-8AEC-9A48CE53B447?maas=maas_adg_605FA232F4C4195D3BA227BA2C68768D_afap_abs&ref_=aa_maas&tag=maas" target="_blank">Amazon Store</a></li>
+    <li><a href="https://poshpendantjaipur.etsy.com" target="_blank">Etsy Shop</a></li>
+  </ul></div>
+  <div class="footer-col"><div class="footer-col-title">By Gemstone</div><ul>
+    <li><a href="/shop.html">🟢 Green Jade</a></li>
+    <li><a href="/shop.html">🌕 Moonstone</a></li>
+    <li><a href="/shop.html">🌸 Rose Quartz</a></li>
+    <li><a href="/shop.html">💜 Amethyst</a></li>
+    <li><a href="/shop.html">🔴 Bloodstone</a></li>
+    <li><a href="/wholesale.html">Wholesale / B2B</a></li>
+  </ul></div>
+  <div class="footer-col"><div class="footer-col-title">Info</div><ul>
+    <li><a href="/about.html">Our Story</a></li>
+    <li><a href="/contact.html">Contact Us</a></li>
+    <li><a href="contact.html#faq">FAQ</a></li>
+    <li><a href="/privacy.html">Privacy Policy</a></li>
+    <li><a href="/terms.html">Terms of Service</a></li>
+    <li><a href="/wholesale.html">Wholesale Enquiries</a></li>
+  </ul></div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 PoshPendant®. All rights reserved. Handcrafted in Jaipur, India 🌸</div>
+    <div class="footer-copy" style="display:flex;align-items:center;gap:16px">
+      <a href="https://wa.me/9119361597" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:11px;display:flex;align-items:center;gap:5px" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='rgba(255,255,255,.35)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+      <span style="color:rgba(255,255,255,.15)">·</span>
+      <span style="color:rgba(255,255,255,.18)">poshpendant.store</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/shared.js"></script>
+<script>
+  const ham=document.getElementById('navHamburger');
+  const nl=document.querySelector('.nav-links');
+  if(ham&&nl){ham.addEventListener('click',()=>{nl.classList.toggle('nav-open');ham.classList.toggle('open');});}
+</script>
+</body>
+</html>

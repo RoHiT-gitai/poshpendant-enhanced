@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Disable Cloudflare email obfuscation -->
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wholesale & B2B | PoshPendant® | Bulk Gemstone Jewelry from Jaipur</title>
+  <meta name="description" content="PoshPendant wholesale — handcrafted gemstone jewelry in bulk from our Jaipur workshop. Ideal for boutiques, corporate gifting, wedding planners & resellers. Low MOQ, custom branding available."/>
+  <meta name="keywords" content="wholesale gemstone jewelry India, bulk jewelry Jaipur, corporate gifting jewelry, gemstone jewelry B2B, custom jewelry branding"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+
+<canvas class="star-canvas" id="starCanvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="geo-banner" id="geoBanner">
+  <span id="geoFlag">🌍</span>
+  <span id="geoBannerText">Detecting your location…</span>
+  <span class="geo-banner-close" onclick="closeBanner()">✕</span>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li class="nav-dropdown"><a href="/shop.html">All Jewelry ▾</a>
+      <ul class="nav-sub">
+        <li><a href="/necklaces.html">🪨 Necklaces</a></li>
+        <li><a href="/bracelets.html">📿 Bracelets</a></li>
+        <li><a href="/earrings.html">✨ Earrings</a></li>
+        <li><a href="/gifts.html">🎁 Gift for Her</a></li>
+      </ul>
+    </li>
+    <li><a href="/about.html">Our Story</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/wholesale.html" class="active-page">Wholesale</a></li>
+    <li><a href="https://wa.me/9119361597" class="nav-whatsapp" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp
+    </a></li>
+    <li><a href="/shop.html" class="nav-shop-btn">Shop Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO -->
+<section style="padding:80px 60px 56px;text-align:center;position:relative;overflow:hidden">
+  <div class="blob blob1" style="opacity:.45"></div>
+  <div class="blob blob2" style="opacity:.35"></div>
+  <div class="breadcrumb"><a href="/index.html">Home</a> <span style="opacity:.4">›</span> Wholesale / B2B</div>
+  <div class="eyebrow" style="justify-content:center;margin-bottom:16px">Jaipur · Direct from Workshop</div>
+  <h1 style="margin-bottom:16px">Wholesale &amp; <em>B2B Orders</em></h1>
+  <p style="font-size:16px;color:var(--mid);max-width:580px;margin:0 auto;line-height:1.8">
+    Stock your boutique, gift your team, or source for your wedding — we supply handcrafted gemstone jewelry in bulk, direct from our Jaipur workshop. Low MOQ. Custom packaging available.
+  </p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px">
+    <a href="https://wa.me/9119361597?text=Hi%2C%20I%27m%20interested%20in%20wholesale%20jewelry%20from%20PoshPendant." target="_blank" rel="noopener" class="btn btn-primary" style="background:#25D366;box-shadow:0 8px 32px rgba(37,211,102,.3)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp Us Now
+    </a>
+    <a href="#" id="emailBtn1" class="btn btn-outline">Email Enquiry</a>
+  </div>
+</section>
+
+<!-- WHO WE WORK WITH -->
+<section class="why-section" style="background:var(--blush)">
+  <div class="section-header">
+    <div class="eyebrow reveal">Who We Work With</div>
+    <h2 class="reveal">Our B2B <em>Partners</em></h2>
+    <p class="section-sub reveal">From independent boutiques to large corporate teams — we supply to businesses of all sizes.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-icon">🏪</span>
+      <div class="why-title">Boutiques &amp; Retailers</div>
+      <div class="why-desc">Stock your store with exclusive handcrafted gemstone jewelry. We supply boutiques across India, UK, USA, and Australia. Private label available on request.</div>
+    </div>
+    <div class="why-card reveal d1">
+      <span class="why-icon">💼</span>
+      <div class="why-title">Corporate Gifting</div>
+      <div class="why-desc">Beautifully packaged gemstone jewelry makes a premium corporate gift. We handle bulk orders for Diwali, Christmas, employee milestones, and client gifting.</div>
+    </div>
+    <div class="why-card reveal d2">
+      <span class="why-icon">💍</span>
+      <div class="why-title">Wedding Planners</div>
+      <div class="why-desc">Bridesmaids gifts, wedding favours, trousseau sets — we create custom gemstone jewelry packages for weddings of any size, delivered on time.</div>
+    </div>
+    <div class="why-card reveal d3">
+      <span class="why-icon">📦</span>
+      <div class="why-title">Resellers &amp; Dropship</div>
+      <div class="why-desc">Sell PoshPendant pieces through your own channels. We offer competitive wholesale pricing and can ship directly to your customers with your branding.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TIERS -->
+<section class="section">
+  <div class="section-header">
+    <div class="eyebrow reveal">Wholesale Pricing</div>
+    <h2 class="reveal">Simple Tiered <em>Pricing</em></h2>
+    <p class="section-sub reveal">The more you order, the better the price. All tiers include our standard gift packaging.</p>
+  </div>
+  <div class="wholesale-tiers reveal">
+    <div class="tier-card">
+      <div class="tier-label">Starter</div>
+      <div class="tier-moq">MOQ: 10 pieces</div>
+      <div class="tier-discount">15% off retail</div>
+      <ul class="tier-perks">
+        <li>✅ Mix &amp; match gemstones</li>
+        <li>✅ Standard gift packaging</li>
+        <li>✅ 7-day turnaround</li>
+        <li>✅ Tracked shipping worldwide</li>
+      </ul>
+      <a href="https://wa.me/9119361597?text=Hi%2C%20I%27m%20interested%20in%20the%20Starter%20wholesale%20tier." target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:auto">Enquire →</a>
+    </div>
+    <div class="tier-card tier-card-featured">
+      <div class="tier-badge-top">Most Popular</div>
+      <div class="tier-label">Growth</div>
+      <div class="tier-moq">MOQ: 50 pieces</div>
+      <div class="tier-discount">25% off retail</div>
+      <ul class="tier-perks">
+        <li>✅ Everything in Starter</li>
+        <li>✅ Custom packaging / tags</li>
+        <li>✅ Priority production</li>
+        <li>✅ Dedicated account support</li>
+        <li>✅ Sample pack available</li>
+      </ul>
+      <a href="https://wa.me/9119361597?text=Hi%2C%20I%27m%20interested%20in%20the%20Growth%20wholesale%20tier." target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:auto">Enquire →</a>
+    </div>
+    <div class="tier-card">
+      <div class="tier-label">Enterprise</div>
+      <div class="tier-moq">MOQ: 200+ pieces</div>
+      <div class="tier-discount">Custom pricing</div>
+      <ul class="tier-perks">
+        <li>✅ Everything in Growth</li>
+        <li>✅ Full private label option</li>
+        <li>✅ Custom gemstone sourcing</li>
+        <li>✅ Exclusive designs available</li>
+        <li>✅ Net-30 payment terms</li>
+      </ul>
+      <a href="#" id="emailBtn2" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:auto">Get a Quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SOURCE FROM JAIPUR -->
+<section style="padding:80px 60px;background:var(--ink);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 70% 50%,rgba(196,121,122,.07) 0%,transparent 70%)"></div>
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--rose-light)">Why Source from Us</div>
+      <h2 style="color:white;margin-bottom:20px">Direct from Jaipur's<br><em>Gemstone Workshop</em></h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:16px">We are based in Jaipur — the gemstone capital of the world. That means you get direct access to natural jade, moonstone, rose quartz, amethyst, and bloodstone at source quality, without importers or middlemen.</p>
+      <p style="font-size:15px;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:28px">Every piece is handcrafted in small batches by skilled artisans and finished to export quality. When you stock PoshPendant, your customers are getting genuine Jaipur craftsmanship — not factory-produced copies.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://wa.me/9119361597?text=Hi%2C%20I%27d%20like%20to%20discuss%20wholesale%20jewelry." target="_blank" rel="noopener" class="btn" style="background:#25D366;color:white;border:none;box-shadow:0 8px 32px rgba(37,211,102,.25)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp Us
+        </a>
+        <a href="#" id="emailBtn3" class="btn btn-outline" style="border-color:rgba(196,121,122,.4);color:var(--rose-light)">Email Enquiry</a>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(196,121,122,.15);border-radius:16px;padding:24px;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:36px;color:var(--rose);line-height:1">10+</div>
+          <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:6px">Min. Order</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(196,121,122,.15);border-radius:16px;padding:24px;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:36px;color:var(--rose);line-height:1">7</div>
+          <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:6px">Day Turnaround</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(196,121,122,.15);border-radius:16px;padding:24px;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:36px;color:var(--rose);line-height:1">32+</div>
+          <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:6px">Countries Shipped</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(196,121,122,.15);border-radius:16px;padding:24px;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:36px;color:var(--rose);line-height:1">6</div>
+          <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:6px">Gemstone Types</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY FORM -->
+<section class="contact-section" id="enquiry">
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info-head">
+        <div class="eyebrow reveal">Get in Touch</div>
+        <h2 class="reveal" style="margin-bottom:14px">Start a Wholesale<br><em>Conversation</em></h2>
+        <p class="contact-sub reveal">Tell us about your business and what you need. We respond within 24 hours — usually much faster on WhatsApp.</p>
+      </div>
+      <div class="c-cards reveal">
+        <div class="c-card">
+          <div class="c-card-icon" style="background:rgba(37,211,102,.1)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <div><div class="c-card-label">WhatsApp (Fastest)</div><div class="c-card-val"><a href="https://wa.me/9119361597" target="_blank" rel="noopener">+91-XXXXXXXXXX →</a></div></div>
+        </div>
+        <div class="c-card"><div class="c-card-icon">📧</div><div><div class="c-card-label">Wholesale Email</div><div class="c-card-val"><a href="mailto:enquiry@poshpendant.com" style="color:var(--rose);text-decoration:none">enquiry@poshpendant.com</a></div></div></div>
+        <div class="c-card"><div class="c-card-icon">📍</div><div><div class="c-card-label">Workshop Location</div><div class="c-card-val" style="color:rgba(255,255,255,.6)">Jaipur, Rajasthan, India</div></div></div>
+      </div>
+      <div class="c-hours reveal d1">
+        <div class="c-hours-title">Response Times</div>
+        <div class="c-hours-row"><span>WhatsApp</span><span style="color:rgba(255,255,255,.7)">Within 2 hours</span></div>
+        <div class="c-hours-row"><span>Email Enquiries</span><span style="color:rgba(255,255,255,.7)">Within 24 hours</span></div>
+        <div class="c-hours-row"><span>Sample Orders</span><span style="color:rgba(255,255,255,.7)">5–7 business days</span></div>
+        <div class="c-hours-row"><span>Bulk Production</span><span style="color:rgba(255,255,255,.7)">7–14 business days</span></div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap reveal-right">
+      <div id="wFormWrap">
+        <div class="form-title">Wholesale Enquiry</div>
+        <div class="form-sub">Tell us about your business and what you need — we'll get back to you within 24 hours.</div>
+        <div class="form-row">
+          <div class="form-field"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Jane Smith" id="wName"/></div>
+          <div class="form-field"><label class="form-label">Business Name</label><input class="form-input" type="text" placeholder="Your Store / Company" id="wBiz"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="jane@yourbusiness.com" id="wEmail"/></div>
+          <div class="form-field"><label class="form-label">WhatsApp / Phone</label><input class="form-input" type="tel" placeholder="+1 234 567 8900" id="wPhone"/></div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Business Type</label>
+          <select class="form-input" id="wType" style="cursor:pointer">
+            <option value="">Select your business type…</option>
+            <option>Boutique / Retail Store</option>
+            <option>Online Reseller</option>
+            <option>Corporate Gifting</option>
+            <option>Wedding Planner</option>
+            <option>Interior / Lifestyle Brand</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">Estimated Order Quantity</label>
+            <select class="form-input" id="wQty" style="cursor:pointer">
+              <option value="">Select quantity…</option>
+              <option>10–50 pieces</option>
+              <option>50–200 pieces</option>
+              <option>200–500 pieces</option>
+              <option>500+ pieces</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Country</label>
+            <input class="form-input" type="text" placeholder="USA / UK / India…" id="wCountry"/>
+          </div>
+        </div>
+        <div class="form-field"><label class="form-label">Tell Us More</label><textarea class="form-textarea" placeholder="Which gemstones are you interested in? Any custom requirements, packaging preferences, or timeline?" id="wMessage"></textarea></div>
+        <button class="form-submit" onclick="submitWholesale()">Send Enquiry ✉️</button>
+        <p style="font-size:11px;color:rgba(255,255,255,.3);text-align:center;margin-top:12px;line-height:1.6">
+          Or reach us instantly on <a href="https://wa.me/9119361597" target="_blank" rel="noopener" style="color:#25D366;text-decoration:none">WhatsApp</a> — we reply fastest there.
+        </p>
+      </div>
+      <div class="form-success" id="wFormSuccess">
+        <span class="form-success-icon">💎</span>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;color:white;margin-bottom:10px">Enquiry Received!</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.45);line-height:1.6">Thank you — we'll be in touch within 24 hours. For faster response, drop us a WhatsApp message.</div>
+        <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="https://wa.me/9119361597" target="_blank" rel="noopener" class="btn" style="background:#25D366;color:white;border:none;display:inline-flex">WhatsApp Us</a>
+          <a href="/shop.html" class="btn btn-outline" style="border-color:rgba(196,121,122,.4);color:var(--rose-light);display:inline-flex">Browse Shop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+    <p class="footer-tagline">Handcrafted gemstone jewelry from Jaipur, India. Natural stones, 18K gold-plated brass, designed for everyday wear. Shipped worldwide via Etsy &amp; Amazon.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://www.instagram.com/posh__pendants/" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      <a class="social-btn" href="#" aria-label="Pinterest">📌</a>
+      <a class="social-btn" href="https://wa.me/9119361597" target="_blank" rel="noopener" aria-label="WhatsApp" style="background:rgba(37,211,102,.15)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-col"><div class="footer-col-title">Shop</div><ul>
+    <li><a href="/shop.html">All Jewelry</a></li>
+    <li><a href="/shop.html">Necklaces</a></li>
+    <li><a href="/shop.html">Bracelets</a></li>
+    <li><a href="https://www.amazon.com/stores/page/69770F17-3394-4D3F-8AEC-9A48CE53B447?maas=maas_adg_605FA232F4C4195D3BA227BA2C68768D_afap_abs&ref_=aa_maas&tag=maas" target="_blank">Amazon Store</a></li>
+    <li><a href="https://poshpendantjaipur.etsy.com" target="_blank">Etsy Shop</a></li>
+  </ul></div>
+  <div class="footer-col"><div class="footer-col-title">By Gemstone</div><ul>
+    <li><a href="/shop.html">🟢 Green Jade</a></li>
+    <li><a href="/shop.html">🌕 Moonstone</a></li>
+    <li><a href="/shop.html">🌸 Rose Quartz</a></li>
+    <li><a href="/shop.html">💜 Amethyst</a></li>
+    <li><a href="/shop.html">🔴 Bloodstone</a></li>
+  </ul></div>
+  <div class="footer-col"><div class="footer-col-title">Info</div><ul>
+    <li><a href="/about.html">Our Story</a></li>
+    <li><a href="/contact.html">Contact Us</a></li>
+    <li><a href="/wholesale.html">Wholesale</a></li>
+    <li><a href="/privacy.html">Privacy Policy</a></li>
+    <li><a href="/terms.html">Terms of Service</a></li>
+  </ul></div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 PoshPendant®. All rights reserved. Handcrafted in Jaipur, India 🌸</div>
+    <div class="footer-copy" style="color:rgba(255,255,255,.18)">poshpendant.store</div>
+  </div>
+</footer>
+
+
+<script src="/shared.js"></script>
+<script>
+  const ham=document.getElementById('navHamburger'),nl=document.querySelector('.nav-links');
+  if(ham&&nl){ham.addEventListener('click',()=>{nl.classList.toggle('nav-open');ham.classList.toggle('open');});}
+
+  function submitWholesale(){
+    const name=document.getElementById('wName').value.trim();
+    const email=document.getElementById('wEmail').value.trim();
+    const biz=document.getElementById('wBiz').value.trim();
+    const phone=document.getElementById('wPhone').value.trim();
+    const type=document.getElementById('wType').value;
+    const qty=document.getElementById('wQty').value;
+    const country=document.getElementById('wCountry').value.trim();
+    const msg=document.getElementById('wMessage').value.trim();
+    if(!name||!email||!biz){alert('Please fill in your name, business name, and email.');return;}
+    const btn=document.querySelector('#wFormWrap .form-submit');
+    btn.disabled=true; btn.textContent='Sending...'; btn.style.opacity='0.7';
+    const formData={
+      access_key: '6c98953e-10af-4b56-9101-a6e5a3a1ab80',
+      subject: 'New Wholesale Enquiry - PoshPendant',
+      from_name: name,
+      email: email,
+      message: `Business: ${biz}\nPhone: ${phone}\nType: ${type}\nQty: ${qty}\nCountry: ${country}\nMessage: ${msg}`
+    };
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(formData)
+    })
+    .then(async r=>{
+      const data=await r.json();
+      if(data.success){
+        document.getElementById('wFormWrap').style.display='none';
+        document.getElementById('wFormSuccess').style.display='block';
+      } else throw new Error(data.message||'Failed');
+      btn.disabled=false; btn.textContent='Send Enquiry ✉️'; btn.style.opacity='1';
+    })
+    .catch(err=>{
+      console.error(err);
+      alert('Sorry, there was an error. Please WhatsApp or email us at enquiry@poshpendant.com');
+      btn.disabled=false; btn.textContent='Send Enquiry ✉️'; btn.style.opacity='1';
+    });
+  }
+</script>
+
+<style>
+/* Wholesale-specific styles */
+.wholesale-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;align-items:start}
+.tier-card{background:var(--ivory);border:1px solid rgba(196,121,122,.12);border-radius:20px;padding:36px 28px;display:flex;flex-direction:column;gap:16px;transition:transform .4s,box-shadow .4s;min-height:400px}
+.tier-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(196,121,122,.12)}
+.tier-card-featured{background:var(--rose);border-color:var(--rose);position:relative}
+.tier-badge-top{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--rose-light);color:white;padding:4px 10px;border-radius:12px;font-size:12px;font-weight:600;}
+</style>
+<script>
+(function(){
+  var e = 'enquiry' + '@' + 'poshpendant.com';
+  var g = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + e + '&su=';
+  var b1 = document.getElementById('emailBtn1');
+  var b2 = document.getElementById('emailBtn2');
+  var b3 = document.getElementById('emailBtn3');
+  if(b1){ b1.href = g + 'Wholesale+Enquiry+-+PoshPendant'; b1.target = '_blank'; b1.rel = 'noopener'; }
+  if(b2){ b2.href = g + 'Enterprise+Wholesale+Quote+-+PoshPendant'; b2.target = '_blank'; b2.rel = 'noopener'; }
+  if(b3){ b3.href = g + 'Wholesale+Enquiry+-+PoshPendant'; b3.target = '_blank'; b3.rel = 'noopener'; }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Confirmed! | PoshPendant®</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="/styles.css"/>
+  <style>
+    body{background:var(--ivory);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
+    .confirm-card{background:white;border-radius:28px;padding:52px 48px;max-width:540px;width:100%;text-align:center;box-shadow:0 24px 80px rgba(196,121,122,.12);border:1px solid rgba(196,121,122,.1)}
+    .confirm-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--rose),var(--rose-light));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:36px;box-shadow:0 16px 40px rgba(196,121,122,.3)}
+    .confirm-title{font-family:"Playfair Display",serif;font-size:32px;color:var(--ink);margin-bottom:10px}
+    .confirm-sub{font-size:14px;color:var(--mid);line-height:1.7;margin-bottom:28px}
+    .order-id{background:var(--blush);border-radius:12px;padding:14px 20px;margin-bottom:28px;font-size:13px;color:var(--mid)}
+    .order-id span{font-family:"Playfair Display",serif;font-size:18px;color:var(--rose);display:block;margin-top:4px}
+    .confirm-items{text-align:left;border-top:1px solid rgba(196,121,122,.1);border-bottom:1px solid rgba(196,121,122,.1);padding:16px 0;margin-bottom:20px}
+    .confirm-item{display:flex;justify-content:space-between;font-size:13px;color:var(--mid);padding:4px 0}
+    .confirm-total{display:flex;justify-content:space-between;font-family:"Playfair Display",serif;font-size:18px;color:var(--ink);margin-bottom:28px}
+    .confirm-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  </style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="confirm-card">
+  <div class="confirm-icon">✓</div>
+  <h1 class="confirm-title">Order Confirmed!</h1>
+  <p class="confirm-sub">Thank you for your purchase! We're handcrafting your jewelry in Jaipur and will ship it to you within 3–5 business days. You'll receive a tracking email soon.</p>
+
+  <div class="order-id">
+    Your Order ID
+    <span id="confirmOrderId">PP-LOADING</span>
+  </div>
+
+  <div class="confirm-items" id="confirmItems"></div>
+  <div class="confirm-total">
+    <span>Total Paid</span>
+    <span id="confirmTotal">$0.00</span>
+  </div>
+
+  <p style="font-size:12px;color:var(--soft);margin-bottom:24px">A confirmation email has been sent to <strong id="confirmEmail"></strong></p>
+
+  <div class="confirm-btns">
+    <a href="/shop.html" class="btn btn-primary">Continue Shopping</a>
+    <a href="/index.html" class="btn btn-outline">Back to Home</a>
+  </div>
+
+  <div style="margin-top:28px;font-size:12px;color:var(--soft);line-height:1.7">
+    Questions? Email us at <a href="mailto:enquiry@poshpendant.com" style="color:var(--rose);text-decoration:none">enquiry@poshpendant.com</a><br>
+    or <a href="https://wa.me/9119361597" style="color:#25D366" target="_blank">WhatsApp us</a> for fastest response 🌸
+  </div>
+</div>
+
+<script src="/shared.js"></script>
+<script>
+const order = JSON.parse(localStorage.getItem('pp_order') || '{}');
+if(order.orderId){
+  document.getElementById('confirmOrderId').textContent = order.orderId;
+  document.getElementById('confirmTotal').textContent = '$' + order.total;
+  document.getElementById('confirmEmail').textContent = order.email;
+  document.getElementById('confirmItems').innerHTML = (order.items || []).map(i =>
+    `<div class="confirm-item"><span>${i.name} × ${i.qty}</

@@ -1,0 +1,19 @@
+# PoshPendant Redirect Rules
+
+# Force HTTPS
+http://* https://:splat 301!
+
+# Redirect old paths
+/shop /shop.html 301
+/product /product.html 301
+/products/* /product.html 301
+
+# Redirect to external stores
+/amazon /shop.html 301
+/etsy /shop.html 301
+
+# API routes
+/api/analytics /.netlify/functions/analytics 200
+
+# Single Page Fallback
+/* /index.html 200

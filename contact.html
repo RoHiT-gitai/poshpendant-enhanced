@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | PoshPendant® | Get In Touch</title>
+  <meta name="description" content="Reach out to PoshPendant — questions, custom orders, order issues or just to say hi. We reply within 24 hours."/>
+  <meta name="theme-color" content="#C4797A"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="PoshPendant"/>
+  <link rel="apple-touch-icon" href="/favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+
+<canvas class="star-canvas" id="starCanvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="geo-banner" id="geoBanner">
+  <span id="geoFlag">🌍</span>
+  <span id="geoBannerText">Detecting your location…</span>
+  <span class="geo-banner-close" onclick="closeBanner()">✕</span>
+</div>
+
+<nav id="navbar">
+  <a href="/index.html" class="logo">Posh<span>Pendant</span></a>
+  <ul>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="index.html#gifts">Gift Ideas</a></li>
+    <li><a href="/shop.html">Shop</a></li>
+    <li><a href="/about.html">Our Story</a></li>
+    <li><a href="/contact.html" class="active-page">Contact</a></li>
+    <li><a href="/shop.html" class="nav-shop-btn">Shop Now</a></li>
+  </ul>
+  <button id="navHamburger" style="display:none;width:36px;height:36px;border:none;background:none;cursor:pointer;flex-direction:column;justify-content:center;gap:6px;padding:0">
+    <span style="width:24px;height:2px;background:#2D1F1F;border-radius:2px"></span>
+    <span style="width:24px;height:2px;background:#2D1F1F;border-radius:2px"></span>
+    <span style="width:24px;height:2px;background:#2D1F1F;border-radius:2px"></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section style="padding:80px 60px 50px;text-align:center;position:relative;overflow:hidden">
+  <div class="blob blob1" style="opacity:.5"></div>
+  <div class="blob blob2" style="opacity:.4"></div>
+  <div class="breadcrumb"><a href="/index.html">Home</a> <span style="opacity:.4">›</span> Contact</div>
+  <div class="eyebrow" style="justify-content:center;margin-bottom:16px">We'd Love to Hear From You</div>
+  <h1 style="margin-bottom:16px">Get In <em>Touch</em></h1>
+  <p style="font-size:16px;color:var(--mid);max-width:520px;margin:0 auto;line-height:1.8">Whether you have a question, a custom order idea, or want to share some love — we reply within 24 hours.</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="section-header">
+    <div class="eyebrow reveal">Customer Love</div>
+    <h2 class="reveal">What Our <em>Customers Say</em></h2>
+    <p class="section-sub reveal">Over 2,000 five-star reviews from real customers.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal"><span class="quote-mark">"</span><p class="quote-text">I bought the crescent moon pendant as a birthday gift for my daughter and she absolutely loved it. The quality is stunning — it feels so luxurious for the price.</p><div class="quote-stars">★★★★★</div><div class="quote-author">— Sarah M.</div><span class="quote-platform">via Amazon</span></div>
+    <div class="testimonial reveal d1"><span class="quote-mark">"</span><p class="quote-text">PoshPendant is my go-to for gifts for her. I ordered the rose gold teardrop for my mom's birthday and she cried happy tears. The packaging alone feels premium.</p><div class="quote-stars">★★★★★</div><div class="quote-author">— Priya K.</div><span class="quote-platform">via Etsy</span></div>
+    <div class="testimonial reveal d2"><span class="quote-mark">"</span><p class="quote-text">The Nova Star is the most complimented piece I own. I wear it every day and it still looks as beautiful as the day it arrived. The craftsmanship is incredible.</p><div class="quote-stars">★★★★★</div><div class="quote-author">— Clara J.</div><span class="quote-platform">via Amazon</span></div>
+    <div class="testimonial reveal d1"><span class="quote-mark">"</span><p class="quote-text">Ordered the Soleil Teardrop as a bridal gift for my maid of honour and she wore it on the wedding day. It photographs beautifully and she still wears it constantly.</p><div class="quote-stars">★★★★★</div><div class="quote-author">— Amara T.</div><span class="quote-platform">via Etsy</span></div>
+    <div class="testimonial reveal d2"><span class="quote-mark">"</span><p class="quote-text">I have bought from PoshPendant three times now and every order has been perfect. Fast shipping, beautiful packaging, and the pieces are even more gorgeous in person.</p><div class="quote-stars">★★★★★</div><div class="quote-author">— Rachel B.</div><span class="quote-platform">via Amazon</span></div>
+    <div class="testimonial reveal d3"><span class="quote-mark">"</span><p class="quote-text">My mum keeps wearing the pendant I gifted her every single day. She gets so many compliments on it. Absolutely worth every penny — will be ordering again soon.</p><div class="quote-stars">★★★★★</div><div class="quote-author">— Leila S.</div><span class="quote-platform">via Etsy</span></div>
+  </div>
+</section>
+
+<!-- REVIEW STATS STRIP -->
+<div style="background:var(--blush);padding:48px 60px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center">
+  <div><div style="font-family:'Playfair Display',serif;font-size:48px;color:var(--rose);line-height:1">4.9★</div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-top:8px">Average Rating</div></div>
+  <div><div style="font-family:'Playfair Display',serif;font-size:48px;color:var(--rose);line-height:1">2k+</div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-top:8px">Verified Reviews</div></div>
+  <div><div style="font-family:'Playfair Display',serif;font-size:48px;color:var(--rose);line-height:1">98%</div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-top:8px">Would Recommend</div></div>
+  <div><div style="font-family:'Playfair Display',serif;font-size:48px;color:var(--rose);line-height:1">32</div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-top:8px">Countries Served</div></div>
+</div>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info-head">
+        <div class="eyebrow reveal">Get In Touch</div>
+        <h2 class="reveal" style="margin-bottom:14px">We Would Love to<br><em>Hear from You</em></h2>
+        <p class="contact-sub reveal">Whether you have a question, a custom order idea, or want to share some love — we reply within 24 hours.</p>
+      </div>
+      <div class="c-cards reveal">
+        <div class="c-card"><div class="c-card-icon">📧</div><div><div class="c-card-label">Email</div><div class="c-card-val"><a href="mailto:enquiry@poshpendant.com" style="color:var(--rose);text-decoration:none">enquiry@poshpendant.com</a></div></div></div>
+        <div class="c-card"><div class="c-card-icon">🛍️</div><div><div class="c-card-label">Amazon Store</div><div class="c-card-val"><a href="https://amazon.com" target="_blank">Shop on Amazon →</a></div></div></div>
+        <div class="c-card"><div class="c-card-icon">🧵</div><div><div class="c-card-label">Etsy Shop</div><div class="c-card-val"><a href="https://etsy.com" target="_blank">Shop on Etsy →</a></div></div></div>
+        <div class="c-card"><div class="c-card-icon">📸</div><div><div class="c-card-label">Instagram</div><div class="c-card-val"><a href="#">@poshpendant</a></div></div></div>
+      </div>
+      <div class="c-hours reveal d1">
+        <div class="c-hours-title">Response Times</div>
+        <div class="c-hours-row"><span>General Enquiries</span><span style="color:rgba(255,255,255,.7)">Within 24 hrs</span></div>
+        <div class="c-hours-row"><span>Order Issues</span><span style="color:rgba(255,255,255,.7)">Within 12 hrs</span></div>
+        <div class="c-hours-row"><span>Custom Orders</span><span style="color:rgba(255,255,255,.7)">2–3 business days</span></div>
+      </div>
+    </div>
+    <div class="contact-form-wrap reveal-right">
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display:none">
+        <input type="hidden" name="_subject" id="formSubject" value="New Contact Form Submission"/>
+        <input type="hidden" name="_captcha" value="false"/>
+      </form>
+      <div id="formWrap">
+        <div class="form-title">Send Us a Message</div>
+        <div class="form-sub">Question, order issue, custom request, or just want to say hi — we read every single message.</div>
+        <div class="suggestion-tabs" id="suggTabs">
+          <button type="button" class="suggestion-tab active" onclick="setSuggTab(this,'question')">❓ Question</button>
+          <button type="button" class="suggestion-tab" onclick="setSuggTab(this,'order')">📦 Order Issue</button>
+          <button type="button" class="suggestion-tab" onclick="setSuggTab(this,'custom')">✏️ Custom Order</button>
+          <button type="button" class="suggestion-tab" onclick="setSuggTab(this,'suggestion')">💡 Suggestion</button>
+          <button type="button" class="suggestion-tab" onclick="setSuggTab(this,'feedback')">⭐ Feedback</button>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label class="form-label" for="fName">First Name</label><input class="form-input" type="text" placeholder="Jane" id="fName" name="firstName" required aria-label="First Name"/></div>
+          <div class="form-field"><label class="form-label" for="fLname">Last Name</label><input class="form-input" type="text" placeholder="Smith" id="fLname" name="lastName" required aria-label="Last Name"/></div>
+        </div>
+        <div class="form-field"><label class="form-label" for="fEmail">Email</label><input class="form-input" type="email" placeholder="jane@example.com" id="fEmail" name="email" required aria-label="Email Address"/></div>
+        <div class="form-field" id="orderFieldWrap" style="display:none"><label class="form-label" for="fOrder">Order Number (optional)</label><input class="form-input" type="text" placeholder="e.g. 112-3456789" id="fOrder" name="orderNumber" aria-label="Order Number"/></div>
+        <div class="form-field"><label class="form-label" for="fMessage">Your Message</label><textarea class="form-textarea" placeholder="Tell us everything…" id="fMessage" name="message" required aria-label="Your Message"></textarea></div>
+        <button type="submit" class="form-submit" onclick="submitForm(event)" id="formSubmitBtn">Send Message ✉️</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <span class="form-success-icon">🌸</span>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;color:white;margin-bottom:10px">Message Received!</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.45);line-height:1.6">Thank you for reaching out. We will get back to you within 24 hours. In the meantime, feel free to browse our full catalogue.</div>
+        <div style="margin-top:24px"><a href="/shop.html" class="btn btn-primary" style="display:inline-flex">Browse the Shop</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><a href="/index.html" class="logo">Posh<span>Pendant</span></a><p class="footer-tagline">Handcrafted artisan pendants and fine jewelry — made with love, worn with pride. Available worldwide on Amazon and Etsy.</p><div class="footer-social"><a class="social-btn" href="#">📷</a><a class="social-btn" href="#">📌</a><a class="social-btn" href="#">👤</a></div></div>
+  <div class="footer-col"><div class="footer-col-title">Shop</div><ul><li><a href="https://amazon.com" target="_blank">Amazon Store</a></li><li><a href="https://etsy.com" target="_blank">Etsy Shop</a></li><li><a href="/shop.html">Full Catalogue</a></li><li><a href="index.html#gifts">Gift Ideas</a></li></ul></div>
+  <div class="footer-col"><div class="footer-col-title">Collections</div><ul><li><a href="/shop.html">Gifts for Her</a></li><li><a href="/shop.html">Gifts for Mom</a></li><li><a href="/shop.html">Bridal Jewelry</a></li><li><a href="/shop.html">Birthday Gifts</a></li><li><a href="/shop.html">Under $50</a></li></ul></div>
+  <div class="footer-col"><div class="footer-col-title">Info</div><ul><li><a href="/about.html">Our Story</a></li><li><a href="contact.html#reviews">Reviews</a></li><li><a href="about.html#craft">Behind the Craft</a></li><li><a href="/contact.html">Contact Us</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
+  <div class="footer-bottom"><div class="footer-copy">© 2025 PoshPendant®. All rights reserved.</div><div class="footer-copy">Handcrafted with care 🌸 · <a href="mailto:enquiry@poshpendant.com" style="color:var(--rose);text-decoration:none">enquiry@poshpendant.com</a></div></div>
+</footer>
+
+<script src="/shared.js"></script>
+<script>
+let suggType='question';
+function setSuggTab(btn,type){
+  suggType=type;
+  document.querySelectorAll('.suggestion-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');
+  document.getElementById('orderFieldWrap').style.display=type==='order'?'block':'none';
+  document.getElementById('formSubject').value=`PoshPendant Contact: ${type.charAt(0).toUpperCase()+type.slice(1)}`;
+}
+function submitForm(e){
+  e.preventDefault();
+  const btn=document.getElementById('formSubmitBtn');
+  const name=document.getElementById('fName').value.trim();
+  const lname=document.getElementById('fLname').value.trim();
+  const email=document.getElementById('fEmail').value.trim();
+  const msg=document.getElementById('fMessage').value.trim();
+  
+  if(!name || !email || !msg){
+    alert('Please fill in all required fields');
+    return;
+  }
+  
+  btn.disabled=true;
+  btn.textContent='Sending...';
+  btn.style.opacity='0.7';
+  
+  const form=document.getElementById('contactForm');
+  const formData=new FormData();
+  formData.append('firstName',name);
+  formData.append('lastName',lname);
+  formData.append('email',email);
+  formData.append('message',msg);
+  if(document.getElementById('fOrder').value){
+    formData.append('orderNumber',document.getElementById('fOrder').value);
+  }
+  formData.append('type',suggType);
+  
+  fetch(form.action,{
+    method:'POST',
+    body:formData,
+    headers:{'Accept':'application/json'}
+  })
+  .then(response=>{
+    if(!response.ok)throw new Error('Form submission failed');
+    document.getElementById('formWrap').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
+    btn.disabled=false;
+    btn.textContent='Send Message ✉️';
+    btn.style.opacity='1';
+  })
+  .catch(er

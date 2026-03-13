@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /shop.html
+Allow: /necklaces.html
+Allow: /bracelets.html
+Allow: /earrings.html
+Allow: /gifts.html
+Allow: /product.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /wholesale.html
+Disallow: /admin
+Disallow: /api
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /?*
+Disallow: /*?*
+
+# Crawl delay for all bots
+Crawl-delay: 1
+
+# Allow fast crawling for Google
+User-agent: Googlebot
+Crawl-delay: 0
+
+# Sitemap location
+Sitemap: https://poshpendant.store/sitemap.xml
